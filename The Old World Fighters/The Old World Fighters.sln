@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Old World Fighters", "The Old World Fighters\The Old World Fighters.csproj", "{3293C48A-C2E5-4F61-B9E3-DB47F8E905DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3293C48A-C2E5-4F61-B9E3-DB47F8E905DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3293C48A-C2E5-4F61-B9E3-DB47F8E905DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3293C48A-C2E5-4F61-B9E3-DB47F8E905DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3293C48A-C2E5-4F61-B9E3-DB47F8E905DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7E79333-57E7-435F-9BBD-DF296414D804}
+	EndGlobalSection
+EndGlobal

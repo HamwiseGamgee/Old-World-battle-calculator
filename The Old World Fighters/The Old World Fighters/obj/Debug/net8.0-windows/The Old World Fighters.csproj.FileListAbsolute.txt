@@ -1,0 +1,16 @@
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The_Old_World_Fighters.Form1.resources
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.csproj.GenerateResource.cache
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.AssemblyInfoInputs.cache
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.AssemblyInfo.cs
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.csproj.CoreCompileInputs.cache
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\The Old World Fighters.exe
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\The Old World Fighters.deps.json
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\The Old World Fighters.runtimeconfig.json
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\The Old World Fighters.dll
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\The Old World Fighters.pdb
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.dll
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\refint\The Old World Fighters.dll
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.pdb
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\The Old World Fighters.genruntimeconfig.cache
+C:\Users\immky\source\repos\The Old World Fighters\The Old World Fighters\obj\Debug\net8.0-windows\ref\The Old World Fighters.dll
