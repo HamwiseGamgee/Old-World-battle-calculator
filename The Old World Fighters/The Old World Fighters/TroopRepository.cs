@@ -1,37 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
 
-namespace The_Old_World_Fighters
+public static class TroopRepository
 {
-    internal class TroopRepository
-    {
-        public static List<Troop> Troops = new List<Troop>
-    {
-        new Troop { troopName = "Clanrats", faction = "Skaven", wepSkil = 3, stg = 3, tuff = 3, ini = 4, att = 1, frontage = 5, sav1 = 6 },
-        new Troop { troopName = "Stormvermin", faction = "Skaven", wepSkil = 4, stg = 4, tuff = 3, ini = 5, att = 1, frontage = 5, sav1 = 5 },
-        new Troop { troopName = "Empire Halberdiers", faction = "Empire", wepSkil = 3, stg = 4, tuff = 3, ini = 3, att = 1, frontage = 5, sav1 = 6 },
-        new Troop { troopName = "Empire Greatswords", faction = "Empire", wepSkil = 4, stg = 5, tuff = 3, ini = 1, att = 1, frontage = 5, sav1 = 5 },
-        new Troop { troopName = "Inner Circle Knights (Charging with Lances)", faction = "Empire", wepSkil = 4, stg = 6, ini = 4, sav1 = 2, frontage = 4},
-        new Troop { troopName = "Rat Ogres", faction = "Skaven", wepSkil = 4, stg = 5, tuff = 4, ini = 4, att = 3, frontage = 3, sav1 = 6 },
-        new Troop { troopName = "Rat Swarms", faction = "Skaven", wepSkil = 2, stg = 2, tuff = 2, ini = 4, att = 5, frontage = 3 },
-    };
+    public static List<Troop> Troops { get; private set; } = new List<Troop>();
+    public static Dictionary<string, Mount> Mounts { get; private set; } = new Dictionary<string, Mount>();
 
-        public static List<string> GetFactions()
-        {
-            return Troops.Select(t => t.faction).Distinct().ToList();
-        }
+    static TroopRepository()
+    {
+        LoadMounts();
+        LoadTroops();
+    }
 
-        // Get troops by faction
-        public static List<Troop> GetTroopsByFaction(string faction)
+    private static void LoadMounts()
+    {
+        string mountsPath = "mounts.json";
+        if (File.Exists(mountsPath))
         {
-            return Troops.Where(t => t.faction == faction).ToList();
-        }
-        public static Troop GetTroopByName(string name)
-        {
-            return Troops.Find(t => t.troopName == name);
+            string json = File.ReadAllText(mountsPath);
+            Mounts = JsonConvert.DeserializeObject<Dictionary<string, Mount>>(json);
         }
     }
+
+    private static void LoadTroops()
+    {
+ string troopsDirectory = "Troops"; // Folder containing faction JSON files
+
+    if (!Directory.Exists(troopsDirectory))
+    {
+        Console.WriteLine($"Directory '{troopsDirectory}' not found.");
+        return;
+    }
+
+    // Get all JSON files in the Troops directory
+    string[] troopFiles = Directory.GetFiles(troopsDirectory, "*.json");
+
+    foreach (string filePath in troopFiles)
+    {
+        try
+        {
+            string json = File.ReadAllText(filePath);
+            List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json);
+
+            foreach (var troop in loadedTroops)
+            {
+                if (!string.IsNullOrEmpty(troop.mount) && Mounts.ContainsKey(troop.mount))
+                {
+                    troop.ApplyMount(Mounts[troop.mount]);
+                }
+                Troops.Add(troop);
+            }
+        }
+    }
+
+    public static List<string> GetFactions()
+    {
+        HashSet<string> factions = new HashSet<string>();
+        foreach (var troop in Troops)
+        {
+            factions.Add(troop.faction);
+        }
+        return new List<string>(factions);
+    }
+
+    public static List<Troop> GetTroopsByFaction(string faction)
+    {
+        return Troops.FindAll(t => t.faction == faction);
+    }
 }
+

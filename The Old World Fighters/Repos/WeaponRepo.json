@@ -1,0 +1,38 @@
+[
+    {
+        "weaponName": "Hand Weapon",
+        "stgBonus": 0,
+        "apBonus": 0,
+        "iniBonus": 0,
+        "affectsExtraRanks": false,
+        "attBonus": 0,
+        "canHoldShield": true
+    },
+    {
+        "weaponName": "Greatsword",
+        "stgBonus": 2,
+        "apBonus": 3,
+        "iniBonus": -1,
+        "affectsExtraRanks": false,
+        "attBonus": 0,
+        "canHoldShield": false
+    },
+    {
+        "weaponName": "Spear",
+        "stgBonus": 1,
+        "apBonus": 0,
+        "iniBonus": 1,
+        "affectsExtraRanks": true,
+        "attBonus": 0,
+        "canHoldShield": true
+    },
+    {
+        "weaponName": "Halberd",
+        "stgBonus": 1,
+        "apBonus": 2,
+        "iniBonus": 0,
+        "affectsExtraRanks": false,
+        "attBonus": 0,
+        "canHoldShield": false
+    }
+]

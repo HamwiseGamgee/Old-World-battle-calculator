@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "mountName": "Barded Warhorse",
+        "armBonus": 1
+    },
+    {
+        "id": 2,
+        "mountName": "Empire Warhorse"
+    },
+    {
+        "id": 3,
+        "mountName": "Imperial Griffon",
+        "wepSkil": 5,
+        "stg": 6,
+        "tuffBonus": 1,
+        "woundBonus": 4,
+        "ini": 4,
+        "att": 4,
+        "ap": 2
+    }
+]

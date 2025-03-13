@@ -13,6 +13,65 @@ namespace The_Old_World_Fighters
         private static Random rand = new Random();
         // Reference to the form's richTextBox
         private static RichTextBox richTextBox1 = Form1.Instance.RichTextBoxOutput;
+         
+         // Roll to check if the attack hits based on the target number (e.g., Weapon Skill)
+private static bool RollDice(int targetNumber)
+{
+    return rand.Next(1, 7) >= targetNumber;
+}
+            // Here is a method to get the To Hit number for two Weapon Skill comparisons
+            private static int GetToHitRoll(int attackerWS, int defenderWS)
+{
+    if (attackerWS > 2 * defenderWS) 
+        return 2;
+    else if (attackerWS > defenderWS) 
+        return 3;
+    else if (defenderWS > 2 * attackerWS) 
+        return 5;
+    else 
+        return 4;
+}
+
+private static int ResolveAttacks(Troop attacker, Troop defender)
+{
+    int totalAttacks = attacker.frontage * attacker.att;
+    int successfulAttacks = 0;
+    int successfulWounds = 0;
+    int unsavedWounds = 0;
+
+    // Calculate To-Hit Roll
+    int toHitTarget = GetToHitRoll(attacker.wepSkil, defender.wepSkil);
+
+    // Roll attacks
+    for (int i = 0; i < totalAttacks; i++)
+    {
+        if (RollDice(toHitTarget)) successfulAttacks++;
+    }
+
+    richTextBox1.AppendText($"{attacker.troopName} made {successfulAttacks} successful attacks (needed {toHitTarget}).\n");
+
+    // Calculate Wound Roll
+    int woundTarget = 4 - (attacker.stg - defender.tuff);
+    woundTarget = Math.Max(2, Math.Min(6, woundTarget));
+
+    for (int i = 0; i < successfulAttacks; i++)
+    {
+        if (RollDice(woundTarget)) successfulWounds++;
+    }
+
+    richTextBox1.AppendText($"{defender.troopName} suffered {successfulWounds} potential wounds (needed {woundTarget}).\n");
+
+    // Apply Saves
+    unsavedWounds = successfulWounds;
+    for (int i = 0; i < successfulWounds; i++)
+    {
+        if (RollDice((defender.sav1 + defender.currentMount.armBonus) - (attacker.ap + attacker.weapon.apBonus)) unsavedWounds--; //Calculate armor save to be save -AP of attacker and weapon bonus.
+    }
+
+    richTextBox1.AppendText($"{defender.troopName} has {unsavedWounds} unsaved wounds after saves.\n");
+
+    return unsavedWounds;
+}
 
         public static void initiativeOrder(Troop input1, Troop input2)
         {
@@ -20,79 +79,42 @@ namespace The_Old_World_Fighters
             {
                 return;
             }
+            else if (input1.ini == input2.ini)
+            {
+                Troop simo1 = input1;
+                Troop simo2 = input2;
+                PerformSimoAttack(simo1, simo2);
+            }
             else
             {
                 Troop firstFighter = (input1.ini > input2.ini) ? input1 : input2;
                 Troop secondFighter = (firstFighter == input1) ? input2 : input1;
                 richTextBox1.Text = ($"You went ahead and pressed the button and now {firstFighter.troopName} gets to fight first\n");
                 PerformAttack(firstFighter, secondFighter);
+                
             }
         }
+        public static void PerformSimoAttack(Troop simo1, Troop simo2)
+{
+    richTextBox1.Text = ($"{simo1.troopName} and {simo2.troopName} attack simultaneously!\n");
 
-        public static void PerformAttack(Troop firstFighter, Troop secondFighter)
-        {
-            // Calculate the total number of attacks
-            int totalAttacks = firstFighter.frontage * firstFighter.att;
-            int successfulAttacks = 0;
-            int successfulWounds = 0;
-            int totalDefenderSaves = 0;
+    int damageToSimo2 = ResolveAttacks(simo1, simo2);
+    int damageToSimo1 = ResolveAttacks(simo2, simo1);
+    richTextBox1.AppendText($"That was pretty cool I guess?\n")
+}
 
-            // Display the number of attacks in the output
-            richTextBox1.AppendText($"{firstFighter.troopName} attacks {secondFighter.troopName} with {totalAttacks} attacks.\n");
-
-            // Define the target number for hitting (based on Weapon Skill or a similar attribute)
-            int targetNumber = (firstFighter.wepSkil > secondFighter.wepSkil) ? 3 : 4;
-
-            // Perform the attacks
-            for (int i = 0; i < totalAttacks; i++)
-            {
-                bool attackHit = AttackRoll(firstFighter, targetNumber);  // Roll for each attack and check if it hits
-                if (attackHit)
-                {
-                    successfulAttacks++;
-                }
-            }
-
-            // Output the number of successful attacks
-            richTextBox1.AppendText($"{firstFighter.troopName} made {successfulAttacks} successful attacks, they were looking for a {targetNumber}.\n");
-
-            // My own attempt at S vs T
-            targetNumber = 4 - (firstFighter.stg - secondFighter.tuff);
-            targetNumber = Math.Max(2, Math.Min(6, targetNumber));
-            for (int i = 0; i < successfulAttacks; i++)
-            {
-                bool attackWound = WoundRoll(firstFighter, targetNumber);
-                if (attackWound)
-                {
-                    successfulWounds++;
-                }      
-            }  
-            // Output for visibility
-               richTextBox1.AppendText($"{secondFighter.troopName} were wounded {successfulWounds} time(s), on rolls of {targetNumber} or more.\n");
+           
         }
-            // Roll to check if the attack hits based on the target number (e.g., Weapon Skill)
-            private static bool AttackRoll(Troop attacker, int targetNumber)
-            {
-             
-                int roll = rand.Next(1, 7);  // Simulate a dice roll between 1 and 6
-                return roll >= targetNumber;  // Success if the roll is greater than or equal to the target number
-            }
+public static void PerformAttack(Troop firstFighter, Troop secondFighter)
+{
+    richTextBox1.AppendText($"{firstFighter.troopName} attacks {secondFighter.troopName}!\n");
+    int damageDealt = ResolveAttacks(firstFighter, secondFighter);
+    richTextBox1.AppendText($"After losing {damageDealt} wounds, the {secondFighter.troopName} strikes back!\n");
+    secondFighter.frontage -= damageDealt / secondFighter.wounds;
+    int returnDamage = ResolveAttacks(secondFighter, firstFighter);
+}
 
-            // Simplified wound roll (e.g., based on Strength vs. Toughness)
-            private static bool WoundRoll(Troop attacker, int woundTarget)
-            {
-             
-                int roll = rand.Next(1, 7);  // Simulate a dice roll between 1 and 6
-                return roll >= woundTarget;  // success if it meets current targetnumber
-            }
 
-            // Simplified save roll (e.g., based on armor or saves)
-            private static bool SaveRoll(Troop defender)
-            {
-              
-                int roll = rand.Next(1, 7);  // Simulate a dice roll between 1 and 6
-                return roll >= defender.sav1;  // Save on a roll equal or below the Save value (simplified)
-            }
         }
 
     }

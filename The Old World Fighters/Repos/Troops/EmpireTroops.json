@@ -1,0 +1,65 @@
+[
+    {
+        "troopName": "Empire Halberdiers",
+        "faction": "Empire",
+        "wepSkil": 3,
+        "stg": 4,
+        "tuff": 3,
+        "ini": 3,
+        "att": 1,
+        "frontage": 5,
+        "sav1": 6,
+        "ap": 1
+    },
+    {
+        "troopName": "Empire Greatswords",
+        "faction": "Empire",
+        "wepSkil": 4,
+        "stg": 5,
+        "tuff": 3,
+        "ini": 1,
+        "att": 1,
+        "frontage": 5,
+        "sav1": 5,
+        "ap": 2,
+        "lead": 8
+    },
+    {
+        "troopName": "Empire State Troops",
+        "faction": "Empire",
+        "wepSkil": 3,
+        "stg": 3,
+        "tuff": 3,
+        "ini": 3,
+        "att": 1,
+        "frontage": 5,
+        "sav1": 6
+    },
+    {
+        "troopName": "State Missile Troops",
+        "faction": "Empire",
+        "wepSkil": 3,
+        "stg": 3,
+        "tuff": 3,
+        "ini": 3,
+        "att": 1,
+        "frontage": 5
+    },
+    {
+        "troopName": "Inner Circle Knights (Charging with Lances)",
+        "faction": "Empire",
+        "wepSkil": 4,
+        "stg": 6,
+        "ini": 4,
+        "sav1": 3,
+        "frontage": 4,
+        "mountId": 1
+    },
+    {
+        "troopName": "Veteran State Troops",
+        "faction": "Empire",
+        "wepSkil": 4,
+        "sav1": 6
+    }
+
+]

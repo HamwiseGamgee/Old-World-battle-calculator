@@ -184,10 +184,9 @@ namespace The_Old_World_Fighters
                 return;
             }
 
-            string selectedTroop1Name = troop1ComboBox.SelectedItem.ToString();
+             string selectedTroopName1 = troop1ComboBox.SelectedItem.ToString();
+    selectedTroop1 = TroopRepository.Troops.Find(t => t.troopName == selectedTroopName1);
 
-            // Fetch troop from repository (Ensure Troops list is properly accessible)
-            Troop selectedTroop = TroopRepository.Troops.Find(t => t.troopName == selectedTroop1Name);
 
             if (selectedTroop != null)
             {
