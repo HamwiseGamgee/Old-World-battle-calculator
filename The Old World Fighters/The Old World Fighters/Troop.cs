@@ -31,7 +31,7 @@ public class Troop
     public bool isCloseorder {get; set;} = true;
     public bool magicAttacks {get; set;} = false;
     public int armBane {get; set;} = 0;
-    public weapon currentWeapon { get; set; }
+    public weapon currentWeapon { get; set; } = new Weapon();
 
     // Constructor 
     public Troop()
