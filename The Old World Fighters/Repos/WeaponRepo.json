@@ -1,5 +1,6 @@
 [
     {
+        "wepId": "1HW",
         "weaponName": "Hand Weapon",
         "stgBonus": 0,
         "apBonus": 0,
@@ -9,30 +10,70 @@
         "canHoldShield": true
     },
     {
-        "weaponName": "Greatsword",
+        "wepId": "GrtW",
+        "weaponName": "Great Weapon",
         "stgBonus": 2,
-        "apBonus": 3,
-        "iniBonus": -1,
+        "apBonus": 2,
+        "iniBonus": -10,
         "affectsExtraRanks": false,
         "attBonus": 0,
-        "canHoldShield": false
+        "canHoldShield": false,
+        "armBaneBonus": 1
     },
     {
-        "weaponName": "Spear",
+        "wepId": "Spr",
+        "weaponName": "Thrusting Spear",
         "stgBonus": 1,
         "apBonus": 0,
-        "iniBonus": 1,
+        "iniBonus": 0,
         "affectsExtraRanks": true,
         "attBonus": 0,
-        "canHoldShield": true
+        "canHoldShield": true,
+        "armBaneBonus": 0
     },
     {
+        "wepId": "Hlbd",
         "weaponName": "Halberd",
         "stgBonus": 1,
+        "apBonus": 1,
+        "iniBonus": 0,
+        "affectsExtraRanks": false,
+        "attBonus": 0,
+        "canHoldShield": false,
+        "armBaneBonus": 1
+    },
+    {
+        "wepId": "2HW",
+        "weaponName": "Two Hand Weapons",
+        "stgBonus": 0,
+        "apBonus": 0,
+        "iniBonus": 0,
+        "affectsExtraRanks": false,
+        "attBonus": 1,
+        "canHoldShield": false,
+        "armBaneBonus": 0
+    },
+    {
+        "wepId": "Fll",
+        "weaponName": "Flail",
+        "stgBonus": 2,
         "apBonus": 2,
         "iniBonus": 0,
         "affectsExtraRanks": false,
         "attBonus": 0,
-        "canHoldShield": false
+        "canHoldShield": false,
+        "armBaneBonus": 0
+    },
+    {
+        "wepId": "Lnc",
+        "weaponName": "Lance",
+        "stgBonus": 2,
+        "apBonus": 2,
+        "iniBonus": 0,
+        "affectsExtraRanks": false,
+        "attBonus": 0,
+        "canHoldShield": true,
+        "armBaneBonus": 1
     }
+
 ]
