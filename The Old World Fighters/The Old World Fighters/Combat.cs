@@ -100,6 +100,7 @@ private static int ResolveAttacks(Troop attacker, Troop defender)
 
     int damageToSimo2 = ResolveAttacks(simo1, simo2);
     int damageToSimo1 = ResolveAttacks(simo2, simo1);
+    richTextBox1.AppendText($"The {simo1.troopName} cause {damageToSimo2} unsaved wounds on {simo2.troopName}, and the {simo2.troopName} cause {damageToSimo1} unsaved wounds in return.");
     richTextBox1.AppendText($"That was pretty cool I guess?\n")
 }
 

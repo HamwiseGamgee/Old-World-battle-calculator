@@ -21,6 +21,7 @@ public class Troop
     public int frontage { get; set; } = 5;
     public string faction { get; set; } = "Whoops";
     public int lead { get; set; } = 7;
+    public int stubborn {get; set;} = 0; //1 = Stubborn, 2 = unbreakable
     public int ap { get; set; } = 0;
     public bool fightInExtraRank { get; set;} = false;
     public int modelsInUnit {get; set;} = 10;
@@ -28,6 +29,8 @@ public class Troop
     public int? MountId { get; set; }
     public Mount? CurrentMount { get; set; }
     public bool isCloseorder {get; set;} = true;
+    public bool magicAttacks {get; set;} = false;
+    public int armBane {get; set;} = 0;
     public weapon currentWeapon { get; set; }
 
     // Constructor 
@@ -67,11 +70,14 @@ theTroopInQuestion.ChangeWeapon("Greatsword");
         public int ini {get; set;} = 3;
         public int att {get; set;} = 1;
         public int ap {get; set;} = 0;
+        public int armBane {get; set;} = 0;
+        public bool killingBlow {get; set;} = false
 
     }
 
     public class Weapon
     {
+        public string wepId {get; set;} = "1HW";
         public string weaponName {get; set;} = "Hand Weapon";
         public int stgBonus {get; set;} = 0;
         public int apBonus {get; set;} = 0;
@@ -79,5 +85,7 @@ theTroopInQuestion.ChangeWeapon("Greatsword");
         public bool affectsExtraRanks { get; set; } = false;
         public int attBonus {get; set;} = 0;
         public bool canHoldShield {get; set;} = true;
+        public int armBaneBonus {get; set;} = 0;
+        public bool gainsMagic {get; set;} = false;
     }
 }

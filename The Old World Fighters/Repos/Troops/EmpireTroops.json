@@ -3,26 +3,29 @@
         "troopName": "Empire Halberdiers",
         "faction": "Empire",
         "wepSkil": 3,
-        "stg": 4,
+        "stg": 3,
         "tuff": 3,
         "ini": 3,
         "att": 1,
         "frontage": 5,
         "sav1": 6,
-        "ap": 1
+        "ap": 0,
+        "currentWeapon": "Hlbd"
     },
     {
         "troopName": "Empire Greatswords",
         "faction": "Empire",
         "wepSkil": 4,
-        "stg": 5,
+        "stg": 3,
         "tuff": 3,
-        "ini": 1,
+        "ini": 3,
         "att": 1,
         "frontage": 5,
         "sav1": 5,
-        "ap": 2,
-        "lead": 8
+        "ap": 0,
+        "lead": 8,
+        "currentWeapon": "GrtW",
+        "stubborn": 1
     },
     {
         "troopName": "Empire State Troops",
@@ -46,20 +49,62 @@
         "frontage": 5
     },
     {
-        "troopName": "Inner Circle Knights (Charging with Lances)",
+        "troopName": "Inner Circle Knights",
         "faction": "Empire",
         "wepSkil": 4,
-        "stg": 6,
+        "stg": 4,
         "ini": 4,
         "sav1": 3,
         "frontage": 4,
-        "mountId": 1
+        "mountId": 1,
+        "currentWeapon": "1HW"
     },
     {
         "troopName": "Veteran State Troops",
         "faction": "Empire",
         "wepSkil": 4,
         "sav1": 6
-    }
+    },
 
+    {
+        "troopName": "Free Company Militia",
+        "faction": "Empire",
+        "wepSkil": 3,
+        "stg": 3,
+        "tuff": 3,
+        "ini": 3,
+        "att": 1,
+        "frontage": 5,
+        "lead": 6,
+        "currentWeapon": "2HW"
+    },
+    {
+        "troopName": "Flagellants",
+        "faction": "Empire",
+        "wepSkil": 3,
+        "stg": 3,
+        "tuff": 3,
+        "ini": 3,
+        "att": 1,
+        "frontage": 5,
+        "lead": 5,
+        "currentWeapon": "Fll",
+        "stubborn": 2
+    },
+    {
+        "troopName": "Outriders",
+        "faction": "Empire",
+        "wepSkil": 3,
+        "stg": 3,
+        "tuff": 3,
+        "ini": 3,
+        "att": 1,
+        "frontage": 5,
+        "sav1": 5,
+        "ap": 0,
+        "lead": 7,
+        "currentWeapon": "1HW",
+        "stubborn": 0,
+        "mountId": 2
+    }
 ]
