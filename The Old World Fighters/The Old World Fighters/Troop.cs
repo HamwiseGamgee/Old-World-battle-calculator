@@ -26,11 +26,22 @@ public class Troop
     public bool fightInExtraRank { get; set;} = false;
     public int modelsInUnit {get; set;} = 10;
     public int filesForRankBonus {get; set;} = 5;
+    public int maxRankBonus {get; set;} = 2;
+    public bool isWarband {get; set;} = false;
     public int? MountId { get; set; }
     public Mount? CurrentMount { get; set; }
     public bool isCloseorder {get; set;} = true;
     public bool magicAttacks {get; set;} = false;
-    public int armBane {get; set;} = 0;    // ✅ Stores only the wepId in JSON and later replaced by real object from repository
+    public int armBane {get; set;} = 0;    
+    public bool isPoisoned {get; set;} = false;
+    public bool isEthereal {get; set;} = false;
+    public bool isUnstable {get; set;} = false;
+    public bool causeFear {get; set;} = false;
+    public bool causeTerror {get; set;} = false;
+    public bool isFlaming {get; set;} = false;
+    public bool isFlammable {get; set;} = false;
+
+    // ✅ Stores only the wepId in JSON and later replaced by real object from repository
     public Weapon currentWeapon { get; set; } = new Weapon(); 
 
     // Optional helper method to change weapons in runtime, e.g. from UI
@@ -50,7 +61,7 @@ public class Troop
     }
 }
  /* TODO: USE THIS method to swap weapons
-theTroopInQuestion.ChangeWeapon("Greatsword");
+theTroopInQuestion.ChangeWeapon("GrtWpn");
 */
 }
     public class Mount 
@@ -82,5 +93,7 @@ theTroopInQuestion.ChangeWeapon("Greatsword");
         public bool canHoldShield {get; set;} = true;
         public int armBaneBonus {get; set;} = 0;
         public bool gainsMagic {get; set;} = false;
+        public bool isPoisoned {get; set;} = false;
+        public bool killingBlow {get; set;} = false;
     }
 }
