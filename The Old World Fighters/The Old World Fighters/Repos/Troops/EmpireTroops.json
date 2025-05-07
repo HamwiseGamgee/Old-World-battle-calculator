@@ -1,17 +1,17 @@
 [
-    {
-        "troopName": "Empire Halberdiers",
-        "faction": "Empire",
-        "wepSkil": 3,
-        "stg": 3,
-        "tuff": 3,
-        "ini": 3,
-        "att": 1,
-        "frontage": 5,
-        "sav1": 6,
-        "ap": 0,
-        "currentWeapon": "Hlbd"
-    },
+  {
+    "ap": 0,
+    "att": 1,
+    "currentWeapon": "Hlbd",
+    "faction": "Empire",
+    "frontage": 5,
+    "ini": 3,
+    "sav1": 6,
+    "stg": 3,
+    "troopName": "Empire Halberdiers",
+    "tuff": 3,
+    "wepSkil": 3
+  },
     {
         "troopName": "Empire Greatswords",
         "faction": "Empire",

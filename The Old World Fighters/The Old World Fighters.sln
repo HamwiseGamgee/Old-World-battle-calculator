@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepoPile", "RepoPile", "{02
 		The Old World Fighters\Repos\WeaponRepo.json = The Old World Fighters\Repos\WeaponRepo.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F26822B0-3E8B-4482-B8CB-532ED6E73184}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("The Old World Fighters")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53c8a16b16848bc4dcf446018bbf00338b6e9fae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89938f657c70156845787f19e9bfc893eed8e7c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("The Old World Fighters")]
 [assembly: System.Reflection.AssemblyTitleAttribute("The Old World Fighters")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

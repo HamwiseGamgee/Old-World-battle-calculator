@@ -21,6 +21,8 @@ namespace The_Old_World_Fighters
         public Form1()
         {
             InitializeComponent();
+            TroopRepository.LoadWeapons();
+            TroopRepository.LoadMounts();
             TroopRepository.LoadTroops();
             Instance = this;  // Set the static reference when the form is initialized
             LoadFactions();

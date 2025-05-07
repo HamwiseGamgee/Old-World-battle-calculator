@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
 using The_Old_World_Fighters;
 
@@ -13,16 +14,58 @@ public static class TroopRepository
     static TroopRepository()
     {
         LoadMounts();
+        LoadWeapons();
         LoadTroops();
     }
+    public static List<Weapon> Weapons { get; private set; } = new List<Weapon>();
 
-    private static void LoadMounts()
+
+    public static void LoadWeapons()
+     {
+        string weaponsPath = Path.Combine("Repos", "WeaponRepo.json");
+        if (File.Exists(weaponsPath))
+         {
+            Debug.WriteLine("HEY MAN IT GOT A LITTLE FATHER THAN YOU THOUGHT");
+             string json = File.ReadAllText(weaponsPath);
+            Weapons = JsonConvert.DeserializeObject<List<Weapon>>(json) ?? new List<Weapon>();
+            Debug.WriteLine($"Loaded {Weapons.Count} weapons from {weaponsPath}");
+        }
+        else
+        {
+            Debug.WriteLine($"Weapons file '{weaponsPath}' not found.");
+        }
+    }
+    /* public static void LoadMounts()
+     {
+         string mountsPath = "mounts.json";
+         if (File.Exists(mountsPath))
+         {
+             string json = File.ReadAllText(mountsPath);
+             Mounts = JsonConvert.DeserializeObject<Dictionary<string, Mount>>(json);
+         }
+     } KEEPING FOR A RAINY DAY*/
+
+    public static void LoadMounts()// COPIED FROM WINDOWS COPILOT
     {
-        string mountsPath = "mounts.json";
+        string mountsPath = Path.Combine("Repos", "MountRepo.json");
         if (File.Exists(mountsPath))
         {
-            string json = File.ReadAllText(mountsPath);
-            Mounts = JsonConvert.DeserializeObject<Dictionary<string, Mount>>(json);
+            try
+            {
+                string json = File.ReadAllText(mountsPath);
+                var loadedMounts = JsonConvert.DeserializeObject<List<Mount>>(json) ?? new List<Mount>();
+                Mounts = loadedMounts.ToDictionary(m => m.Id.ToString());
+
+                Debug.WriteLine($"Loaded {Mounts.Count} mounts from {mountsPath}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error loading mounts: This is Copilot's Fault");
+            }
+        }
+        else
+        {
+            Debug.WriteLine($"Mounts file '{mountsPath}' not found.");
         }
     }
 
@@ -33,11 +76,13 @@ public static class TroopRepository
         if (!Directory.Exists(troopsDirectory))
         {
             Debug.WriteLine($"Directory '{troopsDirectory}' not found.");
+
             return;
         }
 
         // Get all JSON files in the Troops directory
-        string[] troopFiles = Directory.GetFiles(troopsDirectory, "*.json");
+        string[] troopFiles = Directory.GetFiles(troopsDirectory, "*Troops.json", SearchOption.AllDirectories);
+        Debug.WriteLine($" Files found: {string.Join(", ", troopFiles)}");
 
         foreach (string filePath in troopFiles)
         {
@@ -45,27 +90,37 @@ public static class TroopRepository
             {
                 string json = File.ReadAllText(filePath);
                 List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json);
+                Debug.WriteLine($"Loaded {loadedTroops.Count} troops from {filePath}");
 
                 foreach (var troop in loadedTroops)
                 {
-                    if (!string.IsNullOrEmpty(troop.CurrentMount?.mountName) && Mounts.ContainsKey(troop.CurrentMount.mountName))
+                    // Assign correct weapon
+                    if (!string.IsNullOrEmpty(troop.currentWeapon?.weaponName))
                     {
-                        troop.CurrentMount = Mounts[troop.CurrentMount.mountName];
+                        troop.currentWeapon = Weapons.FirstOrDefault(w => w.wepId == troop.currentWeapon.weaponName) ?? new Weapon();
+                    }
+                    //TODO: Fix this code so that it actually references the weapon ID and not the weapon name probably? Same for Mounts.
+                    // Assign correct mount
+                    if (troop.MountId.HasValue && Mounts.TryGetValue(troop.MountId.Value.ToString(), out var mount))
+                    {
+                        troop.CurrentMount = mount;
                     }
 
                     Troops.Add(troop);
                 }
+
             }
             catch
             {
-                Debug.WriteLine("Fucked up the mount loading, I think");
+                Debug.WriteLine($"Error loading troops from {filePath}: LOOK AT THIS ONE");
             }
+
         }
     }
 
     public static List<string> GetFactions()
     {
-        Debug.WriteLine("ATTEMPTING TO LOAD FACTIONS INTO A LIST");
+        Debug.WriteLine("Attempting to Load Factions into a list");
         HashSet<string> factions = new HashSet<string>();
         foreach (var troop in Troops)
         {

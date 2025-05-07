@@ -8,7 +8,7 @@
     "ini": 3,
     "att": 1,
     "frontage": 5,
-    "sav": 6,
+    "sav1": 6,
     "lead": 6
 },
 {
@@ -20,7 +20,7 @@
     "ini": 3,
     "att": 1,
     "frontage": 5,
-    "sav": 6,
+    "sav1": 6,
     "lead": 6
 },
 {
@@ -32,7 +32,7 @@
     "ini": 2,
     "att": 1,
     "frontage": 5,
-    "sav": 7,
+    "sav1": 7,
     "lead": 5
 },
 {
@@ -44,7 +44,7 @@
     "ini": 3,
     "att": 1,
     "frontage": 5,
-    "sav": 7,
+    "sav1": 7,
     "lead": 4
 }
 ]

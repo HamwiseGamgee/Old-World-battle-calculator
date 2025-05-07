@@ -8,7 +8,7 @@
     "ini": 4,
     "att": 1,
     "frontage": 5,
-    "sav": 6,
+    "sav1": 6,
     "lead": 4
 },
 {
@@ -20,7 +20,7 @@
     "ini": 5,
     "att": 1,
     "frontage": 5,
-    "sav": 5,
+    "sav1": 5,
     "lead": 5,
     "currentWeapon": "Hlbd"
 },
@@ -33,7 +33,7 @@
     "ini": 4,
     "att": 4,
     "frontage": 3,
-    "sav": 5,
+    "sav1": 5,
     "armBane": 2
 },
 {
