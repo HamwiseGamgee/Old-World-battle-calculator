@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using System.Windows.Forms;
+using The_Old_World_Fighters;
+using Newtonsoft.Json;
 
 namespace The_Old_World_Fighters
 {
@@ -14,9 +17,11 @@ namespace The_Old_World_Fighters
         }
         public Troop attacker = null;
         public Troop defender = null;
+        public Troop selectedTroop = null;
         public Form1()
         {
             InitializeComponent();
+            TroopRepository.LoadTroops();
             Instance = this;  // Set the static reference when the form is initialized
             LoadFactions();
         }

@@ -65,7 +65,7 @@ private static int ResolveAttacks(Troop attacker, Troop defender)
     unsavedWounds = successfulWounds;
     for (int i = 0; i < successfulWounds; i++)
     {
-        if (RollDice((defender.sav1 + defender.currentMount.armBonus) - (attacker.ap + attacker.weapon.apBonus)) unsavedWounds--; //Calculate armor save to be save -AP of attacker and weapon bonus.
+        if (RollDice((defender.sav1 + defender.CurrentMount.armBonus) - (attacker.ap + attacker.currentWeapon.apBonus))) unsavedWounds--; //Calculate armor save to be save -AP of attacker and weapon bonus.
     }
 
     richTextBox1.AppendText($"{defender.troopName} has {unsavedWounds} unsaved wounds after saves.\n");
@@ -101,11 +101,11 @@ private static int ResolveAttacks(Troop attacker, Troop defender)
     int damageToSimo2 = ResolveAttacks(simo1, simo2);
     int damageToSimo1 = ResolveAttacks(simo2, simo1);
     richTextBox1.AppendText($"The {simo1.troopName} cause {damageToSimo2} unsaved wounds on {simo2.troopName}, and the {simo2.troopName} cause {damageToSimo1} unsaved wounds in return.");
-    richTextBox1.AppendText($"That was pretty cool I guess?\n")
+            richTextBox1.AppendText($"That was pretty cool I guess?\n");
 }
 
            
-        }
+        
 public static void PerformAttack(Troop firstFighter, Troop secondFighter)
 {
     richTextBox1.AppendText($"{firstFighter.troopName} attacks {secondFighter.troopName}!\n");

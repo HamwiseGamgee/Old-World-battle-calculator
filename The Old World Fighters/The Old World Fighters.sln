@@ -5,6 +5,15 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Old World Fighters", "The Old World Fighters\The Old World Fighters.csproj", "{3293C48A-C2E5-4F61-B9E3-DB47F8E905DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepoPile", "RepoPile", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		The Old World Fighters\Repos\Troops\EmpireTroops.json = The Old World Fighters\Repos\Troops\EmpireTroops.json
+		The Old World Fighters\Repos\MountRepo.json = The Old World Fighters\Repos\MountRepo.json
+		The Old World Fighters\Repos\Troops\OrcAndGoblinTroops.json = The Old World Fighters\Repos\Troops\OrcAndGoblinTroops.json
+		The Old World Fighters\Repos\Troops\SkavenTroops.json = The Old World Fighters\Repos\Troops\SkavenTroops.json
+		The Old World Fighters\Repos\WeaponRepo.json = The Old World Fighters\Repos\WeaponRepo.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

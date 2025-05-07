@@ -1,0 +1,50 @@
+[
+    {
+    "troopName": "Orc Boys",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 3,
+    "stg": 3,
+    "tuff": 4,
+    "ini": 3,
+    "att": 1,
+    "frontage": 5,
+    "sav": 6,
+    "lead": 6
+},
+{
+    "troopName": "Orc Big 'Uns",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 3,
+    "stg": 4,
+    "tuff": 4,
+    "ini": 3,
+    "att": 1,
+    "frontage": 5,
+    "sav": 6,
+    "lead": 6
+},
+{
+    "troopName": "Goblin Mob",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 2,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 2,
+    "att": 1,
+    "frontage": 5,
+    "sav": 7,
+    "lead": 5
+},
+{
+    "troopName": "Night Goblin Mob",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 2,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 3,
+    "att": 1,
+    "frontage": 5,
+    "sav": 7,
+    "lead": 4
+}
+]

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L5DcWutdKiG/JMKYVvbzNQsHE+C5aHPevYLA7eUcz7+oMSw+4yNjU0821jzHsQl5Hmq7bM42Yz0MWtnsOksMHg==",
+  "dgSpecHash": "uuzeTZPyE/s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\immky\\source\\repos\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\immky\\source\\repos\\HamwiseGamgee\\Old-World-battle-calculator\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\immky\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

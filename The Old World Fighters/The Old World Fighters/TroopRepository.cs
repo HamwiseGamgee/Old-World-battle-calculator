@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Newtonsoft.Json;
+using The_Old_World_Fighters;
 
 public static class TroopRepository
 {
@@ -24,39 +26,46 @@ public static class TroopRepository
         }
     }
 
-    private static void LoadTroops()
+    public static void LoadTroops()
     {
- string troopsDirectory = "Troops"; // Folder containing faction JSON files
+        string troopsDirectory = "Repos"; // Folder containing faction JSON files
 
-    if (!Directory.Exists(troopsDirectory))
-    {
-        Console.WriteLine($"Directory '{troopsDirectory}' not found.");
-        return;
-    }
-
-    // Get all JSON files in the Troops directory
-    string[] troopFiles = Directory.GetFiles(troopsDirectory, "*.json");
-
-    foreach (string filePath in troopFiles)
-    {
-        try
+        if (!Directory.Exists(troopsDirectory))
         {
-            string json = File.ReadAllText(filePath);
-            List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json);
+            Debug.WriteLine($"Directory '{troopsDirectory}' not found.");
+            return;
+        }
 
-            foreach (var troop in loadedTroops)
+        // Get all JSON files in the Troops directory
+        string[] troopFiles = Directory.GetFiles(troopsDirectory, "*.json");
+
+        foreach (string filePath in troopFiles)
+        {
+            try
             {
-                if (!string.IsNullOrEmpty(troop.mount) && Mounts.ContainsKey(troop.mount))
+                string json = File.ReadAllText(filePath);
+                List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json);
+
+                foreach (var troop in loadedTroops)
                 {
-                    troop.ApplyMount(Mounts[troop.mount]);
+                    if (!string.IsNullOrEmpty(troop.CurrentMount?.mountName) && Mounts.ContainsKey(troop.CurrentMount.mountName))
+                    {
+                        troop.CurrentMount = Mounts[troop.CurrentMount.mountName];
+                    }
+
+                    Troops.Add(troop);
                 }
-                Troops.Add(troop);
+            }
+            catch
+            {
+                Debug.WriteLine("Fucked up the mount loading, I think");
             }
         }
     }
 
     public static List<string> GetFactions()
     {
+        Debug.WriteLine("ATTEMPTING TO LOAD FACTIONS INTO A LIST");
         HashSet<string> factions = new HashSet<string>();
         foreach (var troop in Troops)
         {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\immky\\source\\repos\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj": {}
+    "C:\\Users\\immky\\source\\repos\\HamwiseGamgee\\Old-World-battle-calculator\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj": {}
   },
   "projects": {
-    "C:\\Users\\immky\\source\\repos\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj": {
+    "C:\\Users\\immky\\source\\repos\\HamwiseGamgee\\Old-World-battle-calculator\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\immky\\source\\repos\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj",
+        "projectUniqueName": "C:\\Users\\immky\\source\\repos\\HamwiseGamgee\\Old-World-battle-calculator\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj",
         "projectName": "The Old World Fighters",
-        "projectPath": "C:\\Users\\immky\\source\\repos\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj",
+        "projectPath": "C:\\Users\\immky\\source\\repos\\HamwiseGamgee\\Old-World-battle-calculator\\The Old World Fighters\\The Old World Fighters\\The Old World Fighters.csproj",
         "packagesPath": "C:\\Users\\immky\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\immky\\source\\repos\\The Old World Fighters\\The Old World Fighters\\obj\\",
+        "outputPath": "C:\\Users\\immky\\source\\repos\\HamwiseGamgee\\Old-World-battle-calculator\\The Old World Fighters\\The Old World Fighters\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,11 +44,18 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

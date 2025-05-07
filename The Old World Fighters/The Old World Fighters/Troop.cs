@@ -31,9 +31,9 @@ public class Troop
     public bool isCloseorder {get; set;} = true;
     public bool magicAttacks {get; set;} = false;
     public int armBane {get; set;} = 0;
-    public weapon currentWeapon { get; set; } = new Weapon();
+    public Weapon currentWeapon { get; set; } = new Weapon();
 
-    // Constructor 
+   /* // Constructor 
     public Troop()
     {
         currentWeapon = WeaponRepository.Weapons.FirstOrDefault(w => w.weaponName == "Hand Weapon") 
@@ -54,7 +54,7 @@ public class Troop
         }
     }
 }
-/* TODO: USE THIS method to swap weapons
+ TODO: USE THIS method to swap weapons
 theTroopInQuestion.ChangeWeapon("Greatsword");
 */
 }
@@ -71,7 +71,7 @@ theTroopInQuestion.ChangeWeapon("Greatsword");
         public int att {get; set;} = 1;
         public int ap {get; set;} = 0;
         public int armBane {get; set;} = 0;
-        public bool killingBlow {get; set;} = false
+        public bool killingBlow { get; set; } = false;
 
     }
 
