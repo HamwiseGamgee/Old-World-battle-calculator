@@ -68,8 +68,62 @@ public static class TroopRepository
             Debug.WriteLine($"Mounts file '{mountsPath}' not found.");
         }
     }
+public static void LoadTroops()
+{
+    string troopsDirectory = "Repos"; // Folder containing faction JSON files
 
-    public static void LoadTroops()
+    if (!Directory.Exists(troopsDirectory))
+    {
+        Debug.WriteLine($"Directory '{troopsDirectory}' not found.");
+        return;
+    }
+
+    // Get all JSON files in the Troops directory
+    string[] troopFiles = Directory.GetFiles(troopsDirectory, "*Troops.json", SearchOption.AllDirectories);
+    Debug.WriteLine($" Files found: {string.Join(", ", troopFiles)}");
+
+    foreach (string filePath in troopFiles)
+    {
+        try
+        {
+            string json = File.ReadAllText(filePath);
+            List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json);
+            Debug.WriteLine($"Loaded {loadedTroops.Count} troops from {filePath}");
+
+            foreach (var troop in loadedTroops)
+            {
+                // ✅ Assign correct weapon using wepId
+                if (!string.IsNullOrEmpty(troop.currentWeapon?.wepId))
+                {
+                    var matchedWeapon = Weapons.FirstOrDefault(w => w.wepId == troop.currentWeapon.wepId);
+                    if (matchedWeapon != null)
+                    {
+                        troop.currentWeapon = matchedWeapon;
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"Weapon with wepId '{troop.currentWeapon.wepId}' not found. Using default weapon.");
+                        troop.currentWeapon = new Weapon();
+                    }
+                }
+
+                // ✅ Assign correct mount
+                if (troop.MountId.HasValue && Mounts.TryGetValue(troop.MountId.Value.ToString(), out var mount))
+                {
+                    troop.CurrentMount = mount;
+                }
+
+                Troops.Add(troop);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error loading troops from {filePath}: {ex.Message}");
+        }
+    }
+}
+
+  /*  public static void LoadTroops() PREVIOUS VERSION, KEPT FOR SAFETY
     {
         string troopsDirectory = "Repos"; // Folder containing faction JSON files
 
@@ -95,7 +149,7 @@ public static class TroopRepository
                 foreach (var troop in loadedTroops)
                 {
                     // Assign correct weapon
-                    if (!string.IsNullOrEmpty(troop.currentWeapon?.weaponName))
+                    if (!string.IsNullOrEmpty(troop.currentWeapon?.wepId))
                     {
                         troop.currentWeapon = Weapons.FirstOrDefault(w => w.wepId == troop.currentWeapon.weaponName) ?? new Weapon();
                     }
@@ -116,7 +170,7 @@ public static class TroopRepository
             }
 
         }
-    }
+    }   KEEPING THIS UNTIL THE NEW CODE HAS BEEN TESTED*/ 
 
     public static List<string> GetFactions()
     {

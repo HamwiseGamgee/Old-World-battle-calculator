@@ -30,31 +30,26 @@ public class Troop
     public Mount? CurrentMount { get; set; }
     public bool isCloseorder {get; set;} = true;
     public bool magicAttacks {get; set;} = false;
-    public int armBane {get; set;} = 0;
-    public Weapon currentWeapon { get; set; } = new Weapon();
+    public int armBane {get; set;} = 0;    // ✅ Stores only the wepId in JSON and later replaced by real object from repository
+    public Weapon currentWeapon { get; set; } = new Weapon(); 
 
-   /* // Constructor 
-    public Troop()
+    // Optional helper method to change weapons in runtime, e.g. from UI
+    public void ChangeWeapon(string newWepId)
     {
-        currentWeapon = WeaponRepository.Weapons.FirstOrDefault(w => w.weaponName == "Hand Weapon") 
-                        ?? new weapon { weaponName = "Hand Weapon" }; // Fallback if not found
-    }
-
-    // Method to change weapons
-    public void ChangeWeapon(string newWeaponName)
-    {
-        var newWeapon = WeaponRepository.Weapons.FirstOrDefault(w => w.weaponName == newWeaponName);
+        var newWeapon = TroopRepository.Weapons.FirstOrDefault(w => w.wepId == newWepId);
         if (newWeapon != null)
         {
             currentWeapon = newWeapon;
         }
         else
         {
-            Console.WriteLine($"Weapon '{newWeaponName}' not found! Keeping current weapon.");
+            Console.WriteLine($"Weapon ID '{newWepId}' not found! Keeping current weapon.");
         }
     }
 }
- TODO: USE THIS method to swap weapons
+    }
+}
+ /* TODO: USE THIS method to swap weapons
 theTroopInQuestion.ChangeWeapon("Greatsword");
 */
 }
