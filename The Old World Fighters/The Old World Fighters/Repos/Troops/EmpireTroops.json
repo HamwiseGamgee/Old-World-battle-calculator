@@ -2,7 +2,7 @@
   {
     "ap": 0,
     "att": 1,
-    "currentWeapon": "Hlbd",
+    "WeaponId": "Hlbd",
     "faction": "Empire",
     "frontage": 5,
     "ini": 3,
@@ -12,21 +12,21 @@
     "tuff": 3,
     "wepSkil": 3
   },
-    {
-        "troopName": "Empire Greatswords",
-        "faction": "Empire",
-        "wepSkil": 4,
-        "stg": 3,
-        "tuff": 3,
-        "ini": 3,
-        "att": 1,
-        "frontage": 5,
-        "sav1": 5,
-        "ap": 0,
-        "lead": 8,
-        "currentWeapon": "GrtW",
-        "stubborn": 1
-    },
+  {
+    "troopName": "Empire Greatswords",
+    "faction": "Empire",
+    "wepSkil": 4,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 3,
+    "att": 1,
+    "frontage": 5,
+    "sav1": 5,
+    "ap": 0,
+    "lead": 8,
+    "WeaponId": "GrtW",
+    "stubborn": 1
+  },
     {
         "troopName": "Empire State Troops",
         "faction": "Empire",
@@ -48,17 +48,17 @@
         "att": 1,
         "frontage": 5
     },
-    {
-        "troopName": "Inner Circle Knights",
-        "faction": "Empire",
-        "wepSkil": 4,
-        "stg": 4,
-        "ini": 4,
-        "sav1": 3,
-        "frontage": 4,
-        "mountId": 1,
-        "currentWeapon": "1HW"
-    },
+  {
+    "troopName": "Inner Circle Knights",
+    "faction": "Empire",
+    "wepSkil": 4,
+    "stg": 4,
+    "ini": 4,
+    "sav1": 3,
+    "frontage": 4,
+    "mountId": 1,
+    "WeaponId": "1HW"
+  },
     {
         "troopName": "Veteran State Troops",
         "faction": "Empire",
@@ -76,35 +76,35 @@
         "att": 1,
         "frontage": 5,
         "lead": 6,
-        "currentWeapon": "2HW"
+        "WeaponId": "2HW"
     },
-    {
-        "troopName": "Flagellants",
-        "faction": "Empire",
-        "wepSkil": 3,
-        "stg": 3,
-        "tuff": 3,
-        "ini": 3,
-        "att": 1,
-        "frontage": 5,
-        "lead": 5,
-        "currentWeapon": "Fll",
-        "stubborn": 2
-    },
-    {
-        "troopName": "Outriders",
-        "faction": "Empire",
-        "wepSkil": 3,
-        "stg": 3,
-        "tuff": 3,
-        "ini": 3,
-        "att": 1,
-        "frontage": 5,
-        "sav1": 5,
-        "ap": 0,
-        "lead": 7,
-        "currentWeapon": "1HW",
-        "stubborn": 0,
-        "mountId": 2
-    }
+  {
+    "troopName": "Flagellants",
+    "faction": "Empire",
+    "wepSkil": 3,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 3,
+    "att": 1,
+    "frontage": 5,
+    "lead": 5,
+    "WeaponId": "Fll",
+    "stubborn": 2
+  },
+  {
+    "troopName": "Outriders",
+    "faction": "Empire",
+    "wepSkil": 3,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 3,
+    "att": 1,
+    "frontage": 5,
+    "sav1": 5,
+    "ap": 0,
+    "lead": 7,
+    "WeaponId": "1HW",
+    "stubborn": 0,
+    "mountId": 2
+  }
 ]

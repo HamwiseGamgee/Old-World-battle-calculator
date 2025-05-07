@@ -40,9 +40,10 @@ public class Troop
     public bool causeTerror {get; set;} = false;
     public bool isFlaming {get; set;} = false;
     public bool isFlammable {get; set;} = false;
+    public string WeaponId { get; set; } = "1HW"; // Default weapon ID
 
-    // ✅ Stores only the wepId in JSON and later replaced by real object from repository
-    public Weapon currentWeapon { get; set; } = new Weapon(); 
+        // ✅ Stores only the wepId in JSON and later replaced by real object from repository
+        public Weapon currentWeapon { get; set; } = new Weapon(); 
 
     // Optional helper method to change weapons in runtime, e.g. from UI
     public void ChangeWeapon(string newWepId)
@@ -59,11 +60,11 @@ public class Troop
     }
 }
     }
-}
+
  /* TODO: USE THIS method to swap weapons
 theTroopInQuestion.ChangeWeapon("GrtWpn");
 */
-}
+
     public class Mount 
     {
         public int Id {get; set;} = 0;
@@ -96,4 +97,4 @@ theTroopInQuestion.ChangeWeapon("GrtWpn");
         public bool isPoisoned {get; set;} = false;
         public bool killingBlow {get; set;} = false;
     }
-}
+

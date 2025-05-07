@@ -11,7 +11,7 @@
     "sav1": 6,
     "lead": 4
 },
-{
+  {
     "troopName": "Stormvermin",
     "faction": "Skaven",
     "wepSkil": 4,
@@ -22,8 +22,8 @@
     "frontage": 5,
     "sav1": 5,
     "lead": 5,
-    "currentWeapon": "Hlbd"
-},
+    "WeaponId": "Hlbd"
+  },
 {
     "troopName": "Rat Ogres",
     "faction": "Skaven",
@@ -58,7 +58,7 @@
     "ini": 5,
     "lead": 5
 },
-{
+  {
     "troopName": "Gutter Runners",
     "faction": "Skaven",
     "wepSkil": 4,
@@ -66,8 +66,8 @@
     "tuff": 3,
     "ini": 5,
     "lead": 7,
-    "currentWeapon": "2HW"
-},
+    "WeaponId": "2HW"
+  },
 {
     "troopName": "Plauge Monks",
     "faction": "Skaven",
@@ -78,7 +78,7 @@
     "lead": 5,
     "att": 2
 },
-{
+  {
     "troopName": "Plague Censer Bearers",
     "faction": "Skaven",
     "wepSkil": 3,
@@ -86,6 +86,6 @@
     "tuff": 4,
     "ini": 3,
     "lead": 5,
-    "currentWeapon": "Fll"
-}
+    "WeaponId": "Fll"
+  }
 ]

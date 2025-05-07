@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -48,25 +49,25 @@ private static int ResolveAttacks(Troop attacker, Troop defender)
         if (RollDice(toHitTarget)) successfulAttacks++;
     }
 
-    richTextBox1.AppendText($"{attacker.troopName} made {successfulAttacks} successful attacks (needed {toHitTarget}).\n");
+    richTextBox1.AppendText($"{attacker.troopName} made {successfulAttacks} successful attacks (needed {toHitTarget}'s).\n");
 
     // Calculate Wound Roll
-    int woundTarget = 4 - (attacker.stg - defender.tuff);
-    woundTarget = Math.Max(2, Math.Min(6, woundTarget));
+    int woundTarget = (4 - ((attacker.stg + attacker.currentWeapon.stgBonus) - (defender.tuff + (defender.CurrentMount?.tuffBonus ?? 0))));
 
-    for (int i = 0; i < successfulAttacks; i++)
+            woundTarget = Math.Max(2, Math.Min(6, woundTarget));
+            for (int i = 0; i < successfulAttacks; i++)
     {
         if (RollDice(woundTarget)) successfulWounds++;
     }
 
-    richTextBox1.AppendText($"{defender.troopName} suffered {successfulWounds} potential wounds (needed {woundTarget}).\n");
+    richTextBox1.AppendText($"{defender.troopName} suffered {successfulWounds} potential wounds (needed {woundTarget}'s).\n");
 
     // Apply Saves
     unsavedWounds = successfulWounds;
     for (int i = 0; i < successfulWounds; i++)
     {
-        if (RollDice((defender.sav1 + defender.CurrentMount.armBonus) - (attacker.ap + attacker.currentWeapon.apBonus))) unsavedWounds--; //Calculate armor save to be save -AP of attacker and weapon bonus.
-    }
+        if (RollDice((defender.sav1 + (defender.CurrentMount?.armBonus ?? 0)) - (attacker.ap + attacker.currentWeapon.apBonus))) unsavedWounds--; //Calculate armor save to be save -AP of attacker and weapon bonus.
+        }
 
     richTextBox1.AppendText($"{defender.troopName} has {unsavedWounds} unsaved wounds after saves.\n");
 

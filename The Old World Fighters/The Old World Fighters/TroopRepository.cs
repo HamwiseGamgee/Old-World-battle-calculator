@@ -93,12 +93,13 @@ public static void LoadTroops()
             foreach (var troop in loadedTroops)
             {
                 // ✅ Assign correct weapon using wepId
-                if (!string.IsNullOrEmpty(troop.currentWeapon?.wepId))
+                if (!string.IsNullOrEmpty(troop.WeaponId))
                 {
-                    var matchedWeapon = Weapons.FirstOrDefault(w => w.wepId == troop.currentWeapon.wepId);
+                    var matchedWeapon = Weapons.FirstOrDefault(w => w.wepId == troop.WeaponId);
                     if (matchedWeapon != null)
                     {
                         troop.currentWeapon = matchedWeapon;
+                            Debug.WriteLine($"Successfully gave {troop.currentWeapon.weaponName} to {troop.troopName}.");
                     }
                     else
                     {
@@ -122,56 +123,6 @@ public static void LoadTroops()
         }
     }
 }
-
-  /*  public static void LoadTroops() PREVIOUS VERSION, KEPT FOR SAFETY
-    {
-        string troopsDirectory = "Repos"; // Folder containing faction JSON files
-
-        if (!Directory.Exists(troopsDirectory))
-        {
-            Debug.WriteLine($"Directory '{troopsDirectory}' not found.");
-
-            return;
-        }
-
-        // Get all JSON files in the Troops directory
-        string[] troopFiles = Directory.GetFiles(troopsDirectory, "*Troops.json", SearchOption.AllDirectories);
-        Debug.WriteLine($" Files found: {string.Join(", ", troopFiles)}");
-
-        foreach (string filePath in troopFiles)
-        {
-            try
-            {
-                string json = File.ReadAllText(filePath);
-                List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json);
-                Debug.WriteLine($"Loaded {loadedTroops.Count} troops from {filePath}");
-
-                foreach (var troop in loadedTroops)
-                {
-                    // Assign correct weapon
-                    if (!string.IsNullOrEmpty(troop.currentWeapon?.wepId))
-                    {
-                        troop.currentWeapon = Weapons.FirstOrDefault(w => w.wepId == troop.currentWeapon.weaponName) ?? new Weapon();
-                    }
-                    //TODO: Fix this code so that it actually references the weapon ID and not the weapon name probably? Same for Mounts.
-                    // Assign correct mount
-                    if (troop.MountId.HasValue && Mounts.TryGetValue(troop.MountId.Value.ToString(), out var mount))
-                    {
-                        troop.CurrentMount = mount;
-                    }
-
-                    Troops.Add(troop);
-                }
-
-            }
-            catch
-            {
-                Debug.WriteLine($"Error loading troops from {filePath}: LOOK AT THIS ONE");
-            }
-
-        }
-    }   KEEPING THIS UNTIL THE NEW CODE HAS BEEN TESTED*/ 
-
     public static List<string> GetFactions()
     {
         Debug.WriteLine("Attempting to Load Factions into a list");
