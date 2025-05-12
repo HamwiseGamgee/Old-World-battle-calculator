@@ -93,8 +93,10 @@ private static int ResolveAttacks(Troop attacker, Troop defender)
                 richTextBox1.Text = ($"You went ahead and pressed the button and now {firstFighter.troopName} gets to fight first\n");
                 PerformAttack(firstFighter, secondFighter);
                 
-            }
+            }     
+            richTextBox1.AppendText($"The battle is over, Go Home.");
         }
+
         public static void PerformSimoAttack(Troop simo1, Troop simo2)
 {
     richTextBox1.Text = ($"{simo1.troopName} and {simo2.troopName} attack simultaneously!\n");

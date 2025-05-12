@@ -83,8 +83,9 @@ namespace The_Old_World_Fighters
                 attacker = selectedTroop1;
                 // Update rich text box with troop info
                 richTextBox1.Text = $"Selected Troop 1: {selectedTroop1.troopName} (Faction: {selectedTroop1.faction})\n" +
-                                    $"WS: {selectedTroop1.wepSkil}, STG: {selectedTroop1.stg}, TOU: {selectedTroop1.tuff}, " +
-                                    $"INI: {selectedTroop1.ini}, ATT: {selectedTroop1.att}, SAV1: {selectedTroop1.sav1}";
+                                    $"WeaponSkill: {selectedTroop1.wepSkil}, Strength: {selectedTroop1.stg}, Toughness: {selectedTroop1.tuff}, " +
+                                    $"Initiative: {selectedTroop1.ini}, Attacks: {selectedTroop1.att}, Armor Save: {selectedTroop1.sav1}+\n" + 
+                                    $"These cool cats are carrying {selectedTroop1.currentWeapon.weaponName}'s. They can't wait to fight.";
 
                 // Set the frontage input to the selected troop's frontage value
                 troop1Frontage.Value = selectedTroop1.frontage;
@@ -112,8 +113,9 @@ namespace The_Old_World_Fighters
                 defender = selectedTroop2;
                 // Update rich text box with troop info
                 richTextBox1.Text = $"Selected Troop 2: {selectedTroop2.troopName} (Faction: {selectedTroop2.faction})\n" +
-                                    $"WS: {selectedTroop2.wepSkil}, STG: {selectedTroop2.stg}, TOU: {selectedTroop2.tuff}, " +
-                                    $"INI: {selectedTroop2.ini}, ATT: {selectedTroop2.att}, SAV1: {selectedTroop2.sav1}";
+                                    $"WeaponSkill: {selectedTroop2.wepSkil}, Strength: {selectedTroop2.stg}, Toughness: {selectedTroop2.tuff}, " +
+                                    $"Initiative: {selectedTroop2.ini}, Attacks: {selectedTroop2.att}, Armor Save: {selectedTroop2.sav1}+\n" +
+                                    $"These cool cats are carrying {selectedTroop2.currentWeapon.weaponName}'s. They can't wait to fight.";
 
                 // Set the frontage input to the selected troop's frontage value
                 troop2Frontage.Value = selectedTroop2.frontage;
