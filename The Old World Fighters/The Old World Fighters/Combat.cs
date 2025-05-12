@@ -23,14 +23,85 @@ private static bool RollDice(int targetNumber)
             // Here is a method to get the To Hit number for two Weapon Skill comparisons
             private static int GetToHitRoll(int attackerWS, int defenderWS)
 {
-    if (attackerWS > 2 * defenderWS) 
+    if (attackerWS > (2 * defenderWS)) 
         return 2;
     else if (attackerWS > defenderWS) 
         return 3;
-    else if (defenderWS > 2 * attackerWS) 
+    else if (defenderWS > (2 * attackerWS)) 
         return 5;
     else 
         return 4;
+}
+
+
+// This class holds either a Troop or a Mount with their initiative value.
+// It's used to create a unified initiative list for sorting and display.
+private class InitiativeRoster
+{
+    public Troop? FighterInput { get; set; }     // Will hold a Troop object
+    public Mount? MountInput { get; set; }       // Will hold a Mount object (if applicable)
+    public int Initiative { get; set; }          // Initiative value for sorting
+
+    // Constructor for a Troop
+    public InitiativeRoster(Troop troop)
+    {
+        FighterInput = troop;
+        Initiative = troop.ini;  // 'ini' is the initiative property on Troop
+    }
+
+    // Constructor for a Mount
+    public InitiativeRoster(Mount mount)
+    {
+        MountInput = mount;
+        Initiative = mount.ini;  // 'ini' is the initiative property on Mount
+    }
+}
+
+// Static method to build and return a sorted initiative list
+private static List<InitiativeRoster> GetInitiative(Troop input1, Troop input2)
+{
+    // Validate that both troop inputs are not null
+    if (input1 == null || input2 == null)
+    {
+        Debug.WriteLine("Initiative order failed: Troop inputs were not both provided.");
+        return new List<InitiativeRoster>(); // Return an empty list instead of breaking
+    }
+
+    // Create the base initiative list with the two Troops
+    var roster = new List<InitiativeRoster>
+    {
+        new InitiativeRoster(input1),
+        new InitiativeRoster(input2)
+    };
+
+    // Add mounts to the list if they exist
+    if (input1.CurrentMount != null)
+        roster.Add(new InitiativeRoster(input1.CurrentMount));
+
+    if (input2.CurrentMount != null)
+        roster.Add(new InitiativeRoster(input2.CurrentMount));
+
+    // Sort the list in descending order of initiative (higher goes first)
+    var sortedRoster = roster
+        .OrderByDescending(entry => entry.Initiative)
+        .ToList();
+
+    // Output the sorted roster to debug for verification
+    Debug.WriteLine("=== Initiative Order ===");
+    foreach (var group in sortedRoster.GroupBy(r => r.Initiative))
+    {
+        Debug.WriteLine($"Initiative {group.Key}:");
+
+        foreach (var entry in group)
+        {
+            if (entry.FighterInput != null)
+                Debug.WriteLine($"  Troop: {entry.FighterInput.TroopName}");
+            else if (entry.MountInput != null)
+                Debug.WriteLine($"  Mount: {entry.MountInput.MountName}");
+        }
+    }
+
+    return sortedRoster;
 }
 
 private static int ResolveAttacks(Troop attacker, Troop defender)
