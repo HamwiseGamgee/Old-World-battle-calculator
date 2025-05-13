@@ -1,0 +1,27 @@
+[
+    {
+    "troopName": "Dwarf Warriors",
+    "faction": "Dwarfen Holds",
+    "wepSkil": 4,
+    "stg": 3,
+    "tuff": 4,
+    "ini": 2,
+    "att": 1,
+    "frontage": 4,
+    "sav1": 5,
+    "lead": 9
+    },
+    {
+    "troopName": "Longbeards",
+    "faction": "Dwarfen Holds",
+    "wepSkil": 5,
+    "stg": 4,
+    "tuff": 4,
+    "ini": 2,
+    "att": 1,
+    "frontage": 4,
+    "sav1": 5,
+    "lead": 9,
+    "WeaponId": "Grom"
+    }
+]

@@ -2,6 +2,13 @@
 {
     partial class Form1
     {
+        private Label weapon1Label;
+private Label weapon2Label;
+private ComboBox weapon1ComboBox;
+private ComboBox weapon2ComboBox;
+private Button equipWeapon1Button;
+private Button equipWeapon2Button;
+
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -182,6 +189,69 @@
             label6.Size = new Size(29, 15);
             label6.TabIndex = 15;
             label6.Text = "Unit";
+// --- Weapon 1 UI Elements ---
+weapon1Label = new Label
+{
+    AutoSize = true,
+    Location = new Point(82, 250),
+    Name = "weapon1Label",
+    Size = new Size(110, 15),
+    TabIndex = 16,
+    Text = "Equipped Weapon: -"
+};
+
+weapon1ComboBox = new ComboBox
+{
+    FormattingEnabled = true,
+    Location = new Point(82, 270),
+    Name = "weapon1ComboBox",
+    Size = new Size(121, 23),
+    TabIndex = 17
+};
+
+equipWeapon1Button = new Button
+{
+    Location = new Point(82, 300),
+    Name = "equipWeapon1Button",
+    Size = new Size(121, 23),
+    TabIndex = 18,
+    Text = "Equip Weapon",
+    UseVisualStyleBackColor = true
+};
+equipWeapon1Button.Click += equipWeapon1Button_Click;
+
+// --- Weapon 2 UI Elements ---
+weapon2Label = new Label
+{
+    AutoSize = true,
+    Location = new Point(573, 250),
+    Name = "weapon2Label",
+    Size = new Size(110, 15),
+    TabIndex = 19,
+    Text = "Equipped Weapon: -"
+};
+
+weapon2ComboBox = new ComboBox
+{
+    FormattingEnabled = true,
+    Location = new Point(573, 270),
+    Name = "weapon2ComboBox",
+    Size = new Size(121, 23),
+    TabIndex = 20
+};
+
+equipWeapon2Button = new Button
+{
+    Location = new Point(573, 300),
+    Name = "equipWeapon2Button",
+    Size = new Size(121, 23),
+    TabIndex = 21,
+    Text = "Equip Weapon",
+    UseVisualStyleBackColor = true
+};
+equipWeapon2Button.Click += equipWeapon2Button_Click;
+
+
             // 
             // Form1
             // 
@@ -203,6 +273,12 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button2);
+            Controls.Add(weapon1Label);
+            Controls.Add(weapon2Label);
+            Controls.Add(weapon1ComboBox);
+            Controls.Add(weapon2ComboBox);
+            Controls.Add(equipWeapon1Button);
+            Controls.Add(equipWeapon2Button);
             Name = "Form1";
             Text = "The Old World Fighters";
             ((System.ComponentModel.ISupportInitialize)troop1Frontage).EndInit();

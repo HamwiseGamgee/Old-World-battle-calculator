@@ -10,13 +10,6 @@ public static class TroopRepository
 {
     public static List<Troop> Troops { get; private set; } = new List<Troop>();
     public static Dictionary<string, Mount> Mounts { get; private set; } = new Dictionary<string, Mount>();
-
-    static TroopRepository()
-    {
-        LoadMounts();
-        LoadWeapons();
-        LoadTroops();
-    }
     public static List<Weapon> Weapons { get; private set; } = new List<Weapon>();
 
 

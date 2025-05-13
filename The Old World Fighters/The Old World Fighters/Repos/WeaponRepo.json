@@ -74,6 +74,34 @@
         "attBonus": 0,
         "canHoldShield": true,
         "armBaneBonus": 1
+    },
+    {
+        "wepId": "Kho",
+        "weaponName": "Khopesh",
+        "stgBonus": 0,
+        "apBonus": 1,
+        "iniBonus": 0,
+        "affectsExtraRanks": false,
+        "attBonus": 0,
+        "canHoldShield": true,
+        "armBaneBonus": 0
+    },
+    {
+        "wepId": "Chaos",
+        "weaponName": "Ensorcelled Weapon",
+        "apBonus": 1,
+        "gainsMagic": true
+    },
+    {
+        "wepId": "Grom",
+        "weaponName": "Gromril Weapon",
+        "stgBonus": 0,
+        "apBonus": 1,
+        "iniBonus": 0,
+        "affectsExtraRanks": false,
+        "attBonus": 0,
+        "canHoldShield": true,
+        "armBaneBonus": 0
     }
 
 ]

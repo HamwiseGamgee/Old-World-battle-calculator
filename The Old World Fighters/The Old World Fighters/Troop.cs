@@ -19,14 +19,19 @@ public class Troop
     public int sav2 { get; set; } = 7;
     public int sav3 { get; set; } = 7;
     public int frontage { get; set; } = 5;
+    public int Casualties {get; set; } = 0;
+    public int FloatingWounds {get; set; } = 0;
     public string faction { get; set; } = "Whoops";
     public int lead { get; set; } = 7;
     public int stubborn {get; set;} = 0; //1 = Stubborn, 2 = unbreakable
+    public int UnitStrengthMultiplier {get; set;} = 1;
+    public int RankBonus {get; set;} = 0;
     public int ap { get; set; } = 0;
     public bool fightInExtraRank { get; set;} = false;
-    public int modelsInUnit {get; set;} = 10;
+    public int ModelsInUnit {get; set;} = 10;
     public int filesForRankBonus {get; set;} = 5;
     public int maxRankBonus {get; set;} = 2;
+    public int CombatScore {get; set;} = 0;
     public bool isWarband {get; set;} = false;
     public int? MountId { get; set; }
     public Mount? CurrentMount { get; set; }
