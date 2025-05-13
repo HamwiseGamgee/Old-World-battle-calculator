@@ -36,7 +36,7 @@ private static bool RollDice(int targetNumber)
 
 // This class holds either a Troop or a Mount with their initiative value.
 // It's used to create a unified initiative list for sorting and display.
-private class InitiativeRoster
+public class InitiativeRoster
 {
     public Troop? FighterInput { get; set; }     // Will hold a Troop object
     public Mount? MountInput { get; set; }       // Will hold a Mount object (if applicable)
@@ -46,7 +46,7 @@ private class InitiativeRoster
     public InitiativeRoster(Troop troop)
     {
         FighterInput = troop;
-        Initiative = troop.ini;  // 'ini' is the initiative property on Troop
+        Initiative = (troop.ini + troop.currentWeapon.iniBonus);  // 'ini' is the initiative property on Troop
     }
 
     // Constructor for a Mount
@@ -58,7 +58,7 @@ private class InitiativeRoster
 }
 
 // Static method to build and return a sorted initiative list
-private static List<InitiativeRoster> GetInitiative(Troop input1, Troop input2)
+public static List<InitiativeRoster> GetInitiative(Troop input1, Troop input2)
 {
     // Validate that both troop inputs are not null
     if (input1 == null || input2 == null)
@@ -95,9 +95,9 @@ private static List<InitiativeRoster> GetInitiative(Troop input1, Troop input2)
         foreach (var entry in group)
         {
             if (entry.FighterInput != null)
-                Debug.WriteLine($"  Troop: {entry.FighterInput.TroopName}");
+                Debug.WriteLine($"  Troop: {entry.FighterInput.troopName}");
             else if (entry.MountInput != null)
-                Debug.WriteLine($"  Mount: {entry.MountInput.MountName}");
+                Debug.WriteLine($"  Mount: {entry.MountInput.mountName}");
         }
     }
 

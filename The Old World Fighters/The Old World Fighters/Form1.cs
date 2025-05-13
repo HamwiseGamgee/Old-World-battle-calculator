@@ -129,6 +129,8 @@ namespace The_Old_World_Fighters
             {
                 Combat.initiativeOrder(selectedTroop1, selectedTroop2);
               //  Combat.PerformAttack(selectedTroop1, selectedTroop2);
+              Combat.GetInitiative(selectedTroop1, selectedTroop2);
+                // Perform the attack and display the result
             }
             else
             {
