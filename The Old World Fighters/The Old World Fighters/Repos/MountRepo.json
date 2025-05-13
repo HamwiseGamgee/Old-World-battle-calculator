@@ -6,7 +6,7 @@
     },
     {
         "id": 2,
-        "mountName": "Empire Warhorse"
+        "mountName": "Warhorse"
     },
     {
         "id": 3,
@@ -72,5 +72,42 @@
     "woundBonus": 0,
     "ini": 4,
     "att": 1
+},
+{
+    "id": 10,
+    "mountName": "Chaos Steed",
+    "wepSkil": 3,
+    "stg": 4,
+    "ini": 3,
+    "att": 1,
+    "armBonus": 1
+},
+{
+    "id": 11,
+    "mountName": "Skeletal Steed",
+    "wepSkil": 2,
+    "stg": 3,
+    "ini": 2,
+    "att": 1
+},
+{
+    "id": 12,
+    "mountName": "Necroserpent",
+    "wepSkil": 3,
+    "stg": 5,
+    "ini": 3,
+    "att": 3,
+    "armBonus": 1,
+    "isPoisoned": true
+},
+{
+    "id": 13,
+    "mountName": "Demigryph",
+    "wepSkil": 4,
+    "stg": 5,
+    "ini": 4,
+    "att": 3,
+    "ap": 2,
+    "armBonus": 1
 }
 ]

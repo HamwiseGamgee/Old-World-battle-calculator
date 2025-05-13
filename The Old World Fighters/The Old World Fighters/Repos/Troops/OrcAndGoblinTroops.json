@@ -9,7 +9,8 @@
     "att": 1,
     "frontage": 5,
     "sav1": 6,
-    "lead": 6
+    "lead": 6,
+    "isWarband": true
 },
 {
     "troopName": "Orc Big 'Uns",
@@ -21,7 +22,8 @@
     "att": 1,
     "frontage": 5,
     "sav1": 6,
-    "lead": 6
+    "lead": 6,
+    "isWarband": true
 },
 {
     "troopName": "Goblin Mob",
@@ -33,7 +35,8 @@
     "att": 1,
     "frontage": 5,
     "sav1": 7,
-    "lead": 5
+    "lead": 5,
+    "isWarband": true
 },
 {
     "troopName": "Night Goblin Mob",
@@ -45,6 +48,140 @@
     "att": 1,
     "frontage": 5,
     "sav1": 7,
-    "lead": 4
+    "lead": 4,
+    "isWarband": true
+},
+{
+    "troopName": "Snotling Mob",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 2,
+    "stg": 2,
+    "tuff": 2,
+    "ini": 3,
+    "att": 5,
+    "lead": 4,
+    "stubborn": 2,
+    "frontage": 2,
+    "wounds": 6,
+    "isCloseorder": false
+},
+{
+    "troopName": "Squig Herd",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 4,
+    "stg": 5,
+    "tuff": 3,
+    "ini": 4,
+    "att": 2,
+    "lead": 6,
+    "isWarband": true,
+    "frontage": 5,
+    "isCloseorder": false
+},
+{
+    "troopName": "Common Troll Mob",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 3,
+    "stg": 5,
+    "tuff": 4,
+    "ini": 2,
+    "att": 3,
+    "lead": 4,
+    "sav1": 6,
+    "sav3": 5,
+    "causeFear": true,
+    "isFlammable": true,
+    "frontage": 1,
+    "wounds": 3,
+    "armBane": 1
+},
+{
+    "troopName": "River Troll Mob",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 3,
+    "stg": 5,
+    "tuff": 4,
+    "ini": 1,
+    "att": 3,
+    "lead": 4,
+    "sav1": 6,
+    "sav3": 5,
+    "causeFear": true,
+    "isFlammable": true,
+    "frontage": 1,
+    "wounds": 4,
+    "armBane": 1
+},
+{
+    "troopName": "Stone Troll Mob",
+    "faction": "Orcs and Goblins",
+    "wepSkil": 3,
+    "stg": 5,
+    "tuff": 4,
+    "ini": 2,
+    "att": 3,
+    "lead": 5,
+    "sav1": 5,
+    "sav3": 5,
+    "causeFear": true,
+    "isFlammable": true,
+    "frontage": 1,
+    "wounds": 3,
+    "armBane": 1
+},
+{
+    "troopName": "Orc Boar Boy Mob",
+    "faction":"Orcs and Goblins",
+    "wepSkil": 3,
+    "stg": 3,
+    "tuff": 4,
+    "ini": 3,
+    "att": 1,
+    "lead": 6,
+    "sav1": 5,
+    "mountId": 4,
+    "isWarband": true
+},
+{
+    "troopName": "Goblin Spider Rider Mob",
+    "faction":"Orcs and Goblins",
+    "wepSkil": 2,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 3,
+    "att": 1,
+    "lead": 5,
+    "sav1": 6,
+    "mountId": 9,
+    "isCloseorder": false,
+    "isWarband": true
+},
+{
+    "troopName": "Goblin Wolf Rider Mob",
+    "faction":"Orcs and Goblins",
+    "wepSkil": 2,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 3,
+    "att": 1,
+    "lead": 5,
+    "sav1": 6,
+    "mountId": 5,
+    "isCloseorder": false,
+    "isWarband": true
+},
+{
+    "troopName": "Night Goblin Squig Hopper Mob",
+    "faction":"Orcs and Goblins",
+    "wepSkil": 2,
+    "stg": 3,
+    "tuff": 3,
+    "ini": 3,
+    "att": 1,
+    "lead": 5,
+    "mountId": 8,
+    "isCloseorder": false,
+    "isWarband": true
 }
+
 ]
