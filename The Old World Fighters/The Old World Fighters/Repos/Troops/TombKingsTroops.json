@@ -11,6 +11,8 @@
     "sav1": 5,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "WeaponId": "Kho"
     },
     {
@@ -24,6 +26,8 @@
     "lead": 5,
     "sav1": 6,
     "sav3": 6,
+    "causeFear": true,
+    "isUnstable": true,
     "stubborn": 2
     },
     {
@@ -38,6 +42,8 @@
     "sav1": 6,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "isCloseOrder": false
     },
     {
@@ -52,6 +58,8 @@
     "sav1": 6,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "isCloseOrder": false
     },
     {
@@ -64,9 +72,13 @@
     "att": 3,
     "wounds": 3,
     "lead": 8,
+    "UnitStrengthMultiplier": 3,
+    "filesForRankBonus": 3,
     "sav1": 5,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "WeaponId": "Kho"
     },
     {
@@ -78,9 +90,13 @@
     "ini": 1,
     "att": 5,
     "lead": 10,
+    "UnitStrengthMultiplier": 3,
+    "maxRankBonus": 0,
     "sav1": 7,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "isPoisoned": true,
     "isCloseOrder": false
     },
@@ -93,9 +109,13 @@
     "ini": 3,
     "att": 3,
     "lead": 4,
+    "UnitStrengthMultiplier": 3,
+    "maxRankBonus": 0,
     "sav1": 7,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "isCloseOrder": false
     },
     {
@@ -107,9 +127,14 @@
     "ini": 2,
     "att": 1,
     "lead": 5,
+    "filesForRankBonus": 4,
+    "UnitStrengthMultiplier": 2,
+    "maxRankBonus": 1,
     "sav1": 6,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "mountId": 11
     },
     {
@@ -121,10 +146,14 @@
     "ini": 2,
     "att": 1,
     "lead": 5,
+    "UnitStrengthMultiplier": 2,
+    "maxRankBonus": 1,
     "sav1": 7,
     "sav3": 6,
     "stubborn": 2,
     "mountId": 11,
+    "causeFear": true,
+    "isUnstable": true,
     "isCloseOrder": false
     },
     {
@@ -136,10 +165,16 @@
     "ini": 3,
     "att": 2,
     "lead": 8,
+    "frontage": 3,
+    "UnitStrengthMultiplier": 3,
+    "maxRankBonus": 1,
+    "filesForRankBonus": 3,
     "sav1": 5,
     "sav3": 6,
     "stubborn": 2,
     "mountId": 12,
+    "causeFear": true,
+    "isUnstable": true,
     "WeaponId": "Kho"
     },
     {
@@ -152,8 +187,14 @@
     "att": 2,
     "lead": 8,
     "sav1": 5,
+    "frontage": 3,
+    "UnitStrengthMultiplier": 3,
+    "maxRankBonus": 1,
+    "filesForRankBonus": 3,
     "sav3": 6,
     "stubborn": 2,
+    "causeFear": true,
+    "isUnstable": true,
     "WeaponId": "Hlbd"
     }
 ]

@@ -106,7 +106,7 @@ private static List<InitiativeRoster> GetInitiative(Troop input1, Troop input2)
 
 private static int ResolveAttacks(Troop attacker, Troop defender)
 {
-    int totalAttacks = attacker.frontage * attacker.att;
+    int totalAttacks = (Math.Min(attacker.frontage, attacker.ModelsInUnit)) * (attacker.att + attacker.currentWeapon.attBonus);
     int successfulAttacks = 0;
     int successfulWounds = 0;
     int unsavedWounds = 0;
@@ -187,8 +187,58 @@ public static void PerformAttack(Troop firstFighter, Troop secondFighter)
     int returnDamage = ResolveAttacks(secondFighter, firstFighter);
 }
 
+public static void RevisedAttack(List<InitiativeRoster> initiativeOrder, Troop leftFighter, Troop rightFighter)
+{
+   foreach (var entity in initiativeOrder)
+   {
+    //If this is a troop
+    if (entity.FighterInput != null)
+    {
+        Troop attacker = entity.FighterInput;
 
-        }
+        //Determine the target
+        Troop target = (attacker == leftFighter) ? rightFighter : leftFighter;
+        Debug.WriteLine($"{attacker.troopName} Swings at {target.troopName}");
+        int floatingDamage = ResolveAttacks(attacker, target);
+        Debug.WriteLine($"{floatingDamage} unsaved wounds caused");
+        attacker.CombatScore = attacker.CombatScore + floatingDamage;
+        target.Casualties = (target.Casualties + ((target.FloatingWounds + floatingDamage) / target.wounds));
+        target.FloatingWounds = (target.FloatingWounds + floatingDamage) % target.wounds;
+        Debug.WriteLine($"{target.troopName} took {(target.FloatingWounds + target.floatingDamage) / target.wounds} casualties.");
+    }
+    //If this is a Mount
+    else if (entity.MountInput != null)
+    {
+        Mount attacker = entity.MountInput;
+        
+        //Make sure they hit the right people
+        Troop mountOwner = (attacker == leftFighter.CurrentMount) ? leftFighter : rightFighter;
+        Troop target = (mountOwner == leftFighter) ? rightFighter : leftFighter;
+
+        Debug.WriteLine($"{attacker.mountName} tried to attack {target.troopName} but the code didn't support it.");
+        
+    }
+   }
+}
+
+public static void ResolveCombat(Troop leftFighter, Troop rightFighter)
+{
+    leftFighter.RankBonus = Math.Min(((leftFighter.ModelsInUnit / leftFighter.frontage)
+        + (leftFighter.ModelsInUnit % leftFighter.frontage >= leftFighter.filesForRankBonus ? 1 : 0) - 1), leftFighter.maxRankBonus);
+    rightFighter.RankBonus = Math.Min(((rightFighter.ModelsInUnit / rightFighter.frontage) + (rightFighter.ModelsInUnit % rightFighter.frontage
+         >= rightFighter.filesForRankBonus ? 1 : 0) - 1), rightFighter.maxRankBonus);
+
+    leftFighter.CombatScore = .CombatScore + .RankBonus;
+    rightFighter.CombatScore = .CombatScore + .RankBonus;
+    Debug.WriteLine($"{leftFighter.troopName} achieved a combat score of {leftFighter.CombatScore} and {rightFighter.troopName} had {rightFighter.CombatScore}");
+
+//Reset floating variables for the next combat
+    leftFighter.CombatScore = 0
+    rightFighter.CombatScore = 0
+    leftFighter.FloatingWounds = 0
+    rightFighter.FloatingWounds = 0
+    Debug.WriteLine("ScoreKeeping Reset Occurred");
+}
 
     }
 

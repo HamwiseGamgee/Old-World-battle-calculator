@@ -8,6 +8,7 @@
     "ini": 4,
     "att": 1,
     "frontage": 4,
+    "filesForRankBonus": 4,
     "sav1": 5,
     "lead": 7,
     "isWarband": true,
@@ -22,6 +23,7 @@
     "ini": 3,
     "att": 1,
     "frontage": 5,
+    "maxRankBonus": 3,
     "sav1": 7,
     "lead": 6,
     "isWarband": true,
@@ -36,6 +38,7 @@
     "ini": 3,
     "att": 1,
     "frontage": 5,
+    "maxRankBonus": 3,
     "sav1": 6,
     "lead": 5,
     "isWarband": true,
@@ -61,11 +64,13 @@
     "stg": 5,
     "tuff": 4,
     "ini": 3,
+    "UnitStrengthMultiplier": 3,
     "att": 3,
     "wounds": 3,
     "frontage": 2,
     "sav1": 6,
     "lead": 7,
+    "causeFear": true,
     "isWarband": true
         },
         {
@@ -77,6 +82,7 @@
     "ini": 2,
     "att": 1,
     "frontage": 5,
+    "UnitStrengthMultiplier": 2,
     "sav1": 6,
     "lead": 6,
     "isWarband": true,
@@ -91,6 +97,7 @@
     "ini": 2,
     "att": 3,
     "frontage": 1,
+    "UnitStrengthMultiplier": 3,
     "sav1": 4,
     "lead": 8,
     "wounds": 4,
@@ -125,6 +132,7 @@
     "lead": 6,
     "wounds": 3,
     "isCloseorder": false,
+    "causeFear": true,
     "armBane": 1
         }
 ]
