@@ -1,5 +1,6 @@
 [
     {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Tomb Guard",
     "faction":"Tomb Kings",
     "wepSkil": 3,
@@ -16,6 +17,7 @@
     "WeaponId": "Kho"
     },
     {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Skeleton Warriors",
     "faction":"Tomb Kings",
     "wepSkil": 2,
@@ -31,6 +33,7 @@
     "stubborn": 2
     },
     {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Skeleton Archers",
     "faction":"Tomb Kings",
     "wepSkil": 2,
@@ -47,6 +50,7 @@
     "isCloseOrder": false
     },
     {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Skeleton Skirmishers",
     "faction":"Tomb Kings",
     "wepSkil": 2,
@@ -63,6 +67,7 @@
     "isCloseOrder": false
     },
     {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "Ushabti",
     "faction":"Tomb Kings",
     "wepSkil": 4,
@@ -82,6 +87,7 @@
     "WeaponId": "Kho"
     },
     {
+    "$type": "The_Old_World_Fighters.Swarm, The_Old_World_Fighters",
     "troopName": "Tomb Swarms",
     "faction":"Tomb Kings",
     "wepSkil": 3,
@@ -101,6 +107,7 @@
     "isCloseOrder": false
     },
     {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "Carrion",
     "faction":"Tomb Kings",
     "wepSkil": 3,
@@ -119,6 +126,7 @@
     "isCloseOrder": false
     },
     {
+    "$type": "The_Old_World_Fighters.HeavyCavalry, The_Old_World_Fighters",
     "troopName": "Skeleton Horsemen",
     "faction":"Tomb Kings",
     "wepSkil": 2,
@@ -127,17 +135,17 @@
     "ini": 2,
     "att": 1,
     "lead": 5,
-    "filesForRankBonus": 4,
-    "UnitStrengthMultiplier": 2,
-    "maxRankBonus": 1,
     "sav1": 6,
     "sav3": 6,
     "stubborn": 2,
     "causeFear": true,
     "isUnstable": true,
-    "mountId": 11
+    "mountId": 11,
+    "ModelmmWidth": 25,
+    "ModelmmDepth": 50
     },
     {
+    "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",
     "troopName": "Skeleton Horse Archers",
     "faction":"Tomb Kings",
     "wepSkil": 2,
@@ -157,6 +165,7 @@
     "isCloseOrder": false
     },
     {
+    "$type": "The_Old_World_Fighters.MonstrousCavalry, The_Old_World_Fighters",
     "troopName": "Necropolis Knights",
     "faction":"Tomb Kings",
     "wepSkil": 4,
@@ -178,6 +187,7 @@
     "WeaponId": "Kho"
     },
     {
+    "$type": "The_Old_World_Fighters.MonstrousCavalry, The_Old_World_Fighters",
     "troopName": "Sepulchral Stalkers",
     "faction":"Tomb Kings",
     "wepSkil": 3,

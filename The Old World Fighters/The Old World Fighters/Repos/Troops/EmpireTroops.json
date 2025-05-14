@@ -1,5 +1,6 @@
 [
   {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "ap": 0,
     "att": 1,
     "WeaponId": "Hlbd",
@@ -13,6 +14,7 @@
     "wepSkil": 3
   },
   {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Empire Greatswords",
     "faction": "Empire",
     "wepSkil": 4,
@@ -28,6 +30,7 @@
     "stubborn": 1
   },
     {
+        "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
         "troopName": "Empire State Troops",
         "faction": "Empire",
         "wepSkil": 3,
@@ -39,6 +42,7 @@
         "sav1": 6
     },
     {
+        "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
         "troopName": "State Missile Troops",
         "faction": "Empire",
         "wepSkil": 3,
@@ -49,6 +53,7 @@
         "frontage": 5
     },
   {
+    "$type": "The_Old_World_Fighters.HeavyCavalry, The_Old_World_Fighters",
     "troopName": "Inner Circle Knights",
     "faction": "Empire",
     "wepSkil": 4,
@@ -64,6 +69,7 @@
     "WeaponId": "1HW"
   },
     {
+        "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
         "troopName": "Veteran State Troops",
         "faction": "Empire",
         "wepSkil": 4,
@@ -71,6 +77,7 @@
     },
 
     {
+        "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
         "troopName": "Free Company Militia",
         "faction": "Empire",
         "wepSkil": 3,
@@ -83,6 +90,7 @@
         "WeaponId": "2HW"
     },
   {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Flagellants",
     "faction": "Empire",
     "wepSkil": 3,
@@ -96,6 +104,7 @@
     "stubborn": 2
   },
   {
+    "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",
     "troopName": "Outriders",
     "faction": "Empire",
     "wepSkil": 3,
@@ -107,13 +116,14 @@
     "sav1": 5,
     "ap": 0,
     "lead": 7,    
-    "UnitStrengthMultiplier": 2,
-    "maxRankBonus": 1,
     "WeaponId": "1HW",
     "stubborn": 0,
-    "mountId": 2
+    "mountId": 2,
+    "ModelmmWidth": 30,
+    "ModelmmDepth": 25
   },
   {
+    "$type": "The_Old_World_Fighters.HeavyCavalry, The_Old_World_Fighters",
     "troopName": "Empire Knights",
     "faction": "Empire",
     "wepSkil": 4,
@@ -128,6 +138,7 @@
     "WeaponId": "1HW"
   },
   {
+    "$type": "The_Old_World_Fighters.MonstrousCavalry, The_Old_World_Fighters",
     "troopName": "Demigriff Knights",
     "faction": "Empire",
     "wepSkil": 4,

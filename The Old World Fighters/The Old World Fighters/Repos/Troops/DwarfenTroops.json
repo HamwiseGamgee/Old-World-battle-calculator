@@ -1,5 +1,6 @@
 [
     {
+    "$type": "The_Old_World_Fighters.HeavyInfantry, The_Old_World_Fighters",
     "troopName": "Dwarf Warriors",
     "faction": "Dwarfen Holds",
     "wepSkil": 4,
@@ -9,9 +10,12 @@
     "att": 1,
     "frontage": 4,
     "sav1": 5,
-    "lead": 9
+    "lead": 9,
+    "ModelmmWidth": 25,
+    "ModelmmDepth": 25
     },
     {
+    "$type": "The_Old_World_Fighters.HeavyInfantry, The_Old_World_Fighters",
     "troopName": "Longbeards",
     "faction": "Dwarfen Holds",
     "wepSkil": 5,
@@ -22,6 +26,8 @@
     "frontage": 4,
     "sav1": 5,
     "lead": 9,
-    "WeaponId": "Grom"
+    "WeaponId": "Grom",
+    "ModelmmWidth": 25,
+    "ModelmmDepth": 25
     }
 ]

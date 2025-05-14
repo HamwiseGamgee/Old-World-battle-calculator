@@ -28,15 +28,6 @@ public static class TroopRepository
             Debug.WriteLine($"Weapons file '{weaponsPath}' not found.");
         }
     }
-    /* public static void LoadMounts()
-     {
-         string mountsPath = "mounts.json";
-         if (File.Exists(mountsPath))
-         {
-             string json = File.ReadAllText(mountsPath);
-             Mounts = JsonConvert.DeserializeObject<Dictionary<string, Mount>>(json);
-         }
-     } KEEPING FOR A RAINY DAY*/
 
     public static void LoadMounts()// COPIED FROM WINDOWS COPILOT
     {
@@ -80,7 +71,11 @@ public static void LoadTroops()
         try
         {
             string json = File.ReadAllText(filePath);
-            List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json);
+            var settings = new JsonSerializerSettings
+                {
+                TypeNameHandling = TypeNameHandling.Auto
+                };
+            List<Troop> loadedTroops = JsonConvert.DeserializeObject<List<Troop>>(json, settings);
             Debug.WriteLine($"Loaded {loadedTroops.Count} troops from {filePath}");
 
             foreach (var troop in loadedTroops)

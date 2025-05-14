@@ -8,8 +8,8 @@ using The_Old_World_Fighters;
 namespace The_Old_World_Fighters
 {
 public class Troop
-{
-    public string troopName { get; set; } = "Unit 1";
+{   //Attributes marked with * Should always be filled in .json
+    public string troopName { get; set; } = "Unit 1"; //*
     public int wepSkil { get; set; } = 3;
     public int stg { get; set; } = 3;
     public int tuff { get; set; } = 3;
@@ -22,7 +22,7 @@ public class Troop
     public int frontage { get; set; } = 5;
     public int Casualties {get; set; } = 0;
     public int FloatingWounds {get; set; } = 0;
-    public string faction { get; set; } = "Whoops";
+    public string faction { get; set; } = "Whoops"; //*
     public int lead { get; set; } = 7;
     public int stubborn {get; set;} = 0; //1 = Stubborn, 2 = unbreakable
     public int UnitStrengthMultiplier {get; set;} = 1;
@@ -34,6 +34,8 @@ public class Troop
     public int maxRankBonus {get; set;} = 2;
     public int CombatScore {get; set;} = 0;
     public bool isWarband {get; set;} = false;
+    public int ModelmmWidth {get; set;} = 25;
+    public int ModelmmDepth {get; set;} = 25;
     public int? MountId { get; set; }
     public Mount? CurrentMount { get; set; }
     public bool isCloseorder {get; set;} = true;
@@ -65,6 +67,81 @@ public class Troop
         }
     }
 }
+public class Infantry : Troop
+{
+    public Infantry()
+    {
+        maxRankBonus = 2; // This is the default anyway. Just wanted something here.
+    }
+}
+public class HeavyInfantry : Infantry
+{
+    public HeavyInfantry()
+    {
+    filesForRankBonus = 4;
+    ModelmmDepth = 30;
+    ModelmmWidth = 30;
+    }
+}
+public class MonstrousInfantry : Infantry
+{
+    public MonstrousInfantry()
+    {
+        UnitStrengthMultiplier = 3
+        stg = 4;
+        tuff = 4;
+        wounds = 3;
+        ModelmmDepth = 40;
+        ModelmmWidth = 40;
+    }
+}
+public class Swarm : Infantry
+{
+    public Swarm()
+    {
+        UnitStrengthMultiplier = 3;
+        stubborn = 2;
+        ModelmmDepth = 40;
+        ModelmmDepth = 40;
+    }
+}
+public class Cavalry : Troop
+{
+    public Cavalry()
+    {
+        UnitStrengthMultiplier = 2;
+        maxRankBonus = 1;
+        ModelmmDepth = 50;
+    }
+}
+public class HeavyCavalry : Cavalry
+{
+    public HeavyCavalry()
+    {
+        filesForRankBonus = 2;
+        MountId = 1;
+        ModelmmWidth = 30;
+        ModelmmDepth = 60;
+    }
+}
+public class MonstrousCavalry : Cavalry
+    {
+    public MonstrousCavalry()
+    {
+        filesForRankBonus = 3;
+        ModelmmDepth = 100;
+        ModelmmWidth = 50;
+        wounds = 3;
+        UnitStrengthMultiplier = 3;
+    }
+    }
+public class WarBeast : Cavalry
+{
+    public WarBeast()
+    {
+        UnitStrengthMultiplier = 1;
+    }
+}
     }
 
  /* TODO: USE THIS method to swap weapons
@@ -85,7 +162,7 @@ theTroopInQuestion.ChangeWeapon("GrtWpn");
         public int ap {get; set;} = 0;
         public int armBane {get; set;} = 0;
         public bool killingBlow { get; set; } = false;
-    public bool isPoisoned { get; set; } = false;
+        public bool isPoisoned { get; set; } = false;
         public Troop? Rider { get; set; } = null;
 
 }

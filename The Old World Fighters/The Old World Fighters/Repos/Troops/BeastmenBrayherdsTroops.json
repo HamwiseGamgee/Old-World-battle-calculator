@@ -1,5 +1,6 @@
 [
     {
+    "$type": "The_Old_World_Fighters.HeavyInfantry, The_Old_World_Fighters",
     "troopName": "Bestigor Herd",
     "faction": "Beastmen Brayherds",
     "wepSkil": 4,
@@ -15,6 +16,7 @@
     "WeaponId": "GrtW"
     },
         {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Gor Herd",
     "faction": "Beastmen Brayherds",
     "wepSkil": 4,
@@ -30,6 +32,7 @@
     "isCloseorder": false
         },
         {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Ungor Herd",
     "faction": "Beastmen Brayherds",
     "wepSkil": 3,
@@ -45,6 +48,7 @@
     "isCloseorder": false
         },
         {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Harpies",
     "faction": "Beastmen Brayherds",
     "wepSkil": 3,
@@ -58,22 +62,24 @@
     "isCloseorder": false
         },
         {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "Minotaur Herd",
     "faction": "Beastmen Brayherds",
     "wepSkil": 4,
     "stg": 5,
     "tuff": 4,
     "ini": 3,
-    "UnitStrengthMultiplier": 3,
     "att": 3,
-    "wounds": 3,
     "frontage": 2,
     "sav1": 6,
     "lead": 7,
     "causeFear": true,
-    "isWarband": true
+    "isWarband": true,
+    "ModelmmWidth": 50,
+    "ModelmmDepth": 50
         },
         {
+    "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",
     "troopName": "Centigor Herd",
     "faction": "Beastmen Brayherds",
     "wepSkil": 4,
@@ -86,9 +92,12 @@
     "sav1": 6,
     "lead": 6,
     "isWarband": true,
-    "isCloseorder": false
+    "isCloseorder": false,
+    "ModelmmDepth": 60,
+    "ModelmmWidth": 30
         },
         {
+    "$type": "The_Old_World_Fighters.MonstrousCavalry, The_Old_World_Fighters",
     "troopName": "Dragon Ogres",
     "faction": "Beastmen Brayherds",
     "wepSkil": 4,
@@ -104,9 +113,11 @@
     "isCloseorder": false,
     "armBane": 1,
     "causeFear": true,
-    "WeaponId": "Chaos"
+    "WeaponId": "Chaos",
+    "ModelmmDepth": 75
         },
             {
+    "$type": "The_Old_World_Fighters.WarBeast, The_Old_World_Fighters",
     "troopName": "Chaos Warhounds",
     "faction": "Beastmen Brayherds",
     "wepSkil": 4,
@@ -120,6 +131,7 @@
     "isCloseorder": false
 },
         {
+    "$type": "The_Old_World_Fighters.WarBeast, The_Old_World_Fighters",
     "troopName": "Razorgor Herd",
     "faction": "Beastmen Brayherds",
     "wepSkil": 3,
@@ -133,6 +145,8 @@
     "wounds": 3,
     "isCloseorder": false,
     "causeFear": true,
-    "armBane": 1
+    "armBane": 1,
+    "ModelmmDepth": 75,
+    "ModelmmWidth": 50
         }
 ]

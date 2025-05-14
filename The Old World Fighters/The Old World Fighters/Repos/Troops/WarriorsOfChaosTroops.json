@@ -1,5 +1,6 @@
    [
    {
+    "$type": "The_Old_World_Fighters.HeavyInfantry, The_Old_World_Fighters",
     "troopName": "Chaos Warriors",
     "faction": "Warriors of Chaos",
     "wepSkil": 5,
@@ -13,6 +14,7 @@
     "WeaponId": "Chaos"
 },
 {
+    "$type": "The_Old_World_Fighters.HeavyInfantry, The_Old_World_Fighters",
     "troopName": "Chosen Chaos Warriors",
     "faction": "Warriors of Chaos",
     "wepSkil": 5,
@@ -28,6 +30,7 @@
     "WeaponId": "Chaos"
 },
     {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Chaos Marauders",
     "faction": "Warriors of Chaos",
     "wepSkil": 4,
@@ -41,6 +44,7 @@
     "isWarband": true
 },
     {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "Chaos Ogres",
     "faction": "Warriors of Chaos",
     "wepSkil": 3,
@@ -48,9 +52,7 @@
     "tuff": 4,
     "ini": 2,
     "att": 3,
-    "frontage": 3,    
-    "UnitStrengthMultiplier": 3,
-    "filesForRankBonus": 3,
+    "frontage": 3,
     "sav1": 5,
     "lead": 7,
     "armBane": 1,
@@ -58,6 +60,7 @@
     "causeFear": true
 },
 {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "Chaos Trolls",
     "faction": "Warriors of Chaos",
     "wepSkil": 3,
@@ -77,6 +80,7 @@
     "armBane": 1
 },
     {
+    "$type": "The_Old_World_Fighters.HeavyCavalry, The_Old_World_Fighters",
     "troopName": "Chaos Knights",
     "faction": "Warriors of Chaos",
     "wepSkil": 5,
@@ -94,6 +98,7 @@
     "WeaponId": "Chaos"
 },
     {
+    "$type": "The_Old_World_Fighters.HeavyCavalry, The_Old_World_Fighters",
     "troopName": "Chosen Chaos Knights",
     "faction": "Warriors of Chaos",
     "wepSkil": 5,
@@ -113,6 +118,7 @@
     "WeaponId": "Chaos"
 },
     {
+    "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",
     "troopName": "Marauders Horsemen",
     "faction": "Warriors of Chaos",
     "wepSkil": 4,
@@ -127,9 +133,12 @@
     "lead": 6,
     "isWarband": true,
     "isCloseorder": false,
-    "mountId": 2
+    "mountId": 2,
+    "ModelmmWidth": 30,
+    "ModelmmDepth": 60
 },
     {
+    "$type": "The_Old_World_Fighters.WarBeast, The_Old_World_Fighters",
     "troopName": "Chaos Warhounds",
     "faction": "Warriors of Chaos",
     "wepSkil": 4,

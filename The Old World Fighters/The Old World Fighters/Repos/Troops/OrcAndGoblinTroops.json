@@ -1,5 +1,6 @@
 [
     {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Orc Boys",
     "faction": "Orcs and Goblins",
     "wepSkil": 3,
@@ -10,9 +11,12 @@
     "frontage": 5,
     "sav1": 6,
     "lead": 6,
-    "isWarband": true
+    "isWarband": true,
+    "ModelmmWidth": 30,
+    "ModelmmDepth": 30
 },
 {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Orc Big 'Uns",
     "faction": "Orcs and Goblins",
     "wepSkil": 3,
@@ -23,9 +27,12 @@
     "frontage": 5,
     "sav1": 6,
     "lead": 6,
-    "isWarband": true
+    "isWarband": true,
+    "ModelmmWidth": 30,
+    "ModelmmDepth": 30
 },
 {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Goblin Mob",
     "faction": "Orcs and Goblins",
     "wepSkil": 2,
@@ -40,6 +47,7 @@
     "isWarband": true
 },
 {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Night Goblin Mob",
     "faction": "Orcs and Goblins",
     "wepSkil": 2,
@@ -54,6 +62,7 @@
     "isWarband": true
 },
 {
+    "$type": "The_Old_World_Fighters.Swarm, The_Old_World_Fighters",
     "troopName": "Snotling Mob",
     "faction": "Orcs and Goblins",
     "wepSkil": 2,
@@ -70,6 +79,7 @@
     "isCloseorder": false
 },
 {
+    "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
     "troopName": "Squig Herd",
     "faction": "Orcs and Goblins",
     "wepSkil": 4,
@@ -83,6 +93,7 @@
     "isCloseorder": false
 },
 {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "Common Troll Mob",
     "faction": "Orcs and Goblins",
     "wepSkil": 3,
@@ -102,6 +113,7 @@
     "armBane": 1
 },
 {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "River Troll Mob",
     "faction": "Orcs and Goblins",
     "wepSkil": 3,
@@ -121,6 +133,7 @@
     "armBane": 1
 },
 {
+    "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
     "troopName": "Stone Troll Mob",
     "faction": "Orcs and Goblins",
     "wepSkil": 3,
@@ -140,6 +153,7 @@
     "armBane": 1
 },
 {
+    "$type": "The_Old_World_Fighters.HeavyCavalry, The_Old_World_Fighters",
     "troopName": "Orc Boar Boy Mob",
     "faction":"Orcs and Goblins",
     "wepSkil": 3,
@@ -157,6 +171,7 @@
     "isWarband": true
 },
 {
+    "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",
     "troopName": "Goblin Spider Rider Mob",
     "faction":"Orcs and Goblins",
     "wepSkil": 2,
@@ -173,6 +188,7 @@
     "isWarband": true
 },
 {
+    "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",
     "troopName": "Goblin Wolf Rider Mob",
     "faction":"Orcs and Goblins",
     "wepSkil": 2,
@@ -189,6 +205,7 @@
     "isWarband": true
 },
 {
+    "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",
     "troopName": "Night Goblin Squig Hopper Mob",
     "faction":"Orcs and Goblins",
     "wepSkil": 2,
@@ -201,7 +218,9 @@
     "UnitStrengthMultiplier": 2,
     "mountId": 8,
     "isCloseorder": false,
-    "isWarband": true
+    "isWarband": true,
+    "ModelmmDepth": 25,
+    "ModelmmWidth": 25
 }
 
 ]
