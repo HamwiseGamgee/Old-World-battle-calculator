@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Security.Policy;
 using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
 using The_Old_World_Fighters;
@@ -18,10 +19,9 @@ public static class TroopRepository
         string weaponsPath = Path.Combine("Repos", "WeaponRepo.json");
         if (File.Exists(weaponsPath))
          {
-            Debug.WriteLine("HEY MAN IT GOT A LITTLE FATHER THAN YOU THOUGHT");
              string json = File.ReadAllText(weaponsPath);
             Weapons = JsonConvert.DeserializeObject<List<Weapon>>(json) ?? new List<Weapon>();
-            Debug.WriteLine($"Loaded {Weapons.Count} weapons from {weaponsPath}");
+           // Debug.WriteLine($"Loaded {Weapons.Count} weapons from {weaponsPath}");
         }
         else
         {
@@ -130,6 +130,15 @@ public static void LoadTroops()
     public static List<Troop> GetTroopsByFaction(string faction)
     {
         return Troops.FindAll(t => t.faction == faction);
+    }
+    public static List<string> FillWeapons()
+    {
+        List<string> weaponNames = new List<string>();
+        foreach (var weapon in Weapons)
+        {
+            weaponNames.Add(weapon.weaponName);
+        }
+        return weaponNames;
     }
 }
 

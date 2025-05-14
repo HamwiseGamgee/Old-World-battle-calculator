@@ -4,6 +4,7 @@ using System.Security.Permissions;
 using System.Windows.Forms;
 using The_Old_World_Fighters;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace The_Old_World_Fighters
 {
@@ -26,6 +27,8 @@ namespace The_Old_World_Fighters
             TroopRepository.LoadTroops();
             Instance = this;  // Set the static reference when the form is initialized
             LoadFactions();
+            LoadLeftWeaponBox();
+            LoadRightWeaponBox();
         }
 
         // Load all factions into the first dropdown box
@@ -41,6 +44,21 @@ namespace The_Old_World_Fighters
                 faction2ComboBox.Items.AddRange(factions.ToArray());
             }
         }
+
+        private void LoadLeftWeaponBox()
+        {
+            leftTroopWeaponBox.Items.Clear();
+            List<string> weapons = TroopRepository.FillWeapons();
+            leftTroopWeaponBox.Items.AddRange(weapons.ToArray());
+        }
+
+        private void LoadRightWeaponBox()
+        {
+            rightTroopWeaponBox.Items.Clear();
+            List<string> weapons = TroopRepository.FillWeapons();
+            rightTroopWeaponBox.Items.AddRange(weapons.ToArray());
+        }
+
         // Variables to hold the currently selected troops
         private Troop selectedTroop1 = null;
         private Troop selectedTroop2 = null;
@@ -61,7 +79,20 @@ namespace The_Old_World_Fighters
                 selectedTroop2.frontage = (int)troop2Frontage.Value;
             }
         }
-
+        private void leftTroopModelCount_ValueChanged(object sender, EventArgs e)
+        {
+            if (selectedTroop1 != null)
+            {
+                selectedTroop1.ModelsInUnit = (int)leftTroopModelCount.Value;
+            }
+        }
+        private void rightTroopModelCount_ValueChanged(object sender, EventArgs e)
+        {
+            if (selectedTroop2 != null)
+            {
+                selectedTroop2.ModelsInUnit = (int)rightTroopModelCount.Value;
+            }
+        }
         // Event handler for troop 1 combo box
         private void troop1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,11 +115,12 @@ namespace The_Old_World_Fighters
                 // Update rich text box with troop info
                 richTextBox1.Text = $"Selected Troop 1: {selectedTroop1.troopName} (Faction: {selectedTroop1.faction})\n" +
                                     $"WeaponSkill: {selectedTroop1.wepSkil}, Strength: {selectedTroop1.stg}, Toughness: {selectedTroop1.tuff}, " +
-                                    $"Initiative: {selectedTroop1.ini}, Attacks: {selectedTroop1.att}, Armor Save: {selectedTroop1.sav1}+\n" + 
+                                    $"Initiative: {selectedTroop1.ini}, Attacks: {selectedTroop1.att}, Armor Save: {selectedTroop1.sav1}+\n" +
                                     $"These cool cats are carrying {selectedTroop1.currentWeapon.weaponName}'s. They can't wait to fight.";
 
                 // Set the frontage input to the selected troop's frontage value
                 troop1Frontage.Value = selectedTroop1.frontage;
+                leftTroopModelCount.Value = selectedTroop1.ModelsInUnit;
             }
         }
 
@@ -119,6 +151,7 @@ namespace The_Old_World_Fighters
 
                 // Set the frontage input to the selected troop's frontage value
                 troop2Frontage.Value = selectedTroop2.frontage;
+                rightTroopModelCount.Value = selectedTroop2.ModelsInUnit;
             }
         }
 
@@ -127,10 +160,12 @@ namespace The_Old_World_Fighters
         {
             if (selectedTroop1 != null && selectedTroop2 != null)
             {
-                Combat.initiativeOrder(selectedTroop1, selectedTroop2);
-              //  Combat.PerformAttack(selectedTroop1, selectedTroop2);
-              Combat.GetInitiative(selectedTroop1, selectedTroop2);
-                // Perform the attack and display the result
+
+                List<Combat.InitiativeRoster> initiativeOrder = Combat.GetInitiative(selectedTroop1, selectedTroop2);
+                Combat.RevisedAttack(initiativeOrder, selectedTroop1, selectedTroop2);
+                Combat.ResolveCombat(selectedTroop1, selectedTroop2);
+                leftTroopModelCount.Value = selectedTroop1.ModelsInUnit;
+                rightTroopModelCount.Value = selectedTroop2.ModelsInUnit;
             }
             else
             {
@@ -185,33 +220,79 @@ namespace The_Old_World_Fighters
             }
         }
 
-
-        // Handles troop selection and displays its details
-        private void selectTroopButton_Click(object sender, EventArgs e)
+        private void equipRightUnit_Click(object sender, EventArgs e)
         {
-            if (troop1ComboBox.SelectedItem == null)
+            if (selectedTroop2 != null)
             {
-                richTextBox1.Text = "No troop selected.\n";
-                return;
+                string selectedWeaponName = rightTroopWeaponBox.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(selectedWeaponName))
+                {
+                    MessageBox.Show("Please select a weapon.");
+                    return;
+                }
+                var weapon = TroopRepository.Weapons.FirstOrDefault(w => w.weaponName == selectedWeaponName);
+                if (weapon == null)
+                {
+                    MessageBox.Show($"Weapon '{selectedWeaponName}' not found in the repository.");
+                    return;
+                }
+                // Change weapon using its ID
+                if (selectedTroop2 != null)
+                {
+                    selectedTroop2.ChangeWeapon(weapon.wepId);
+                    Debug.WriteLine($"Weapon changed to {weapon.weaponName} for {selectedTroop2.troopName}.");
+                }
             }
-
-             string selectedTroopName1 = troop1ComboBox.SelectedItem.ToString();
-    selectedTroop1 = TroopRepository.Troops.Find(t => t.troopName == selectedTroopName1);
-
-
-            if (selectedTroop != null)
+        }
+        private void equipLeftUnit_Click(object sender, EventArgs e)
+        {
+            if (selectedTroop1 != null)
             {
-                richTextBox1.Text = $"Selected: {selectedTroop.troopName} (Faction: {selectedTroop.faction})\n" +
-                                    $"WS: {selectedTroop.wepSkil}, STG: {selectedTroop.stg}, TOU: {selectedTroop.tuff}\n, " +
-                                    $"INI: {selectedTroop.ini}, ATT: {selectedTroop.att}, SAV1: {selectedTroop.sav1}\n";
+                // Get selected weapon name from combo box
+                string selectedWeaponName = leftTroopWeaponBox.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(selectedWeaponName))
+                {
+                    MessageBox.Show("Please select a weapon.");
+                    return;
+                }
+
+                // Find weapon object by name
+                var weapon = TroopRepository.Weapons.FirstOrDefault(w => w.weaponName == selectedWeaponName);
+                if (weapon == null)
+                {
+                    MessageBox.Show($"Weapon '{selectedWeaponName}' not found in the repository.");
+                    return;
+                }
+
+                // Change weapon using its ID
+                if (selectedTroop1 != null)
+                {
+                    selectedTroop1.ChangeWeapon(weapon.wepId);
+                    Debug.WriteLine($"Weapon changed to {weapon.weaponName} for {selectedTroop1.troopName}.");
+                }
+            }
+        }
+        private void leftTroopWeaponBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (selectedTroop1 != null && leftTroopWeaponBox.SelectedItem != null)
+            {
+
             }
             else
             {
-                richTextBox1.Text = "Error: Troop not found.\n";
+                return;
             }
         }
-
-
+        private void rightTroopWeaponBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (selectedTroop2 != null && rightTroopWeaponBox.SelectedItem != null)
+            {
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }
 

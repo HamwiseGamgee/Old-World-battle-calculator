@@ -39,3 +39,6 @@ C:\Users\immky\source\repos\HamwiseGamgee\Old-World-battle-calculator\The Old Wo
 C:\Users\immky\source\repos\HamwiseGamgee\Old-World-battle-calculator\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\Repos\Troops\SkavenTroops.json
 C:\Users\immky\source\repos\HamwiseGamgee\Old-World-battle-calculator\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\Repos\MountRepo.json
 C:\Users\immky\source\repos\HamwiseGamgee\Old-World-battle-calculator\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\Repos\WeaponRepo.json
+C:\Users\immky\Source\Repos\HamwiseGamgee\Old-World-battle-calculator\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\Repos\Troops\DwarfenTroops.json
+C:\Users\immky\Source\Repos\HamwiseGamgee\Old-World-battle-calculator\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\Repos\Troops\TombKingsTroops.json
+C:\Users\immky\Source\Repos\HamwiseGamgee\Old-World-battle-calculator\The Old World Fighters\The Old World Fighters\bin\Debug\net8.0-windows\Repos\Troops\WarriorsOfChaosTroops.json

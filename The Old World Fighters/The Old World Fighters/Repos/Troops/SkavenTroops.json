@@ -37,6 +37,7 @@
     "ini": 4,
     "att": 4,
     "frontage": 3,
+    "wounds": 3,
     "filesForRankBonus": 3,
     "UnitStrengthMultiplier": 3,
     "maxRankBonus": 3,

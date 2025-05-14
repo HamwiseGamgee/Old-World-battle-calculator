@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using The_Old_World_Fighters;
 
 namespace The_Old_World_Fighters
 {
@@ -69,7 +70,7 @@ public class Troop
  /* TODO: USE THIS method to swap weapons
 theTroopInQuestion.ChangeWeapon("GrtWpn");
 */
-
+ 
     public class Mount 
     {
         public int Id {get; set;} = 0;
@@ -84,8 +85,10 @@ theTroopInQuestion.ChangeWeapon("GrtWpn");
         public int ap {get; set;} = 0;
         public int armBane {get; set;} = 0;
         public bool killingBlow { get; set; } = false;
+    public bool isPoisoned { get; set; } = false;
+        public Troop? Rider { get; set; } = null;
 
-    }
+}
 
     public class Weapon
     {
