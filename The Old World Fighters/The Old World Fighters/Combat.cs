@@ -108,38 +108,42 @@ namespace The_Old_World_Fighters
 
             return sortedRoster;
         }
-        private static int TotalAttacks(Troop attacker, Troop defender)
-        {
-        int attackerFootprint = (attacker == leftFighter) ? LeftTroopFrontageState : RightTroopFrontageState;
-        int defenderFootprint = (attacker == leftFighter) ? RightTroopFrontageState : LeftTroopFrontageState;
-
-        int attackermmFootprint = attacker.ModelmmWidth * attackerFootprint;
-        int defendermmFootprint = defender.ModelmmWidth * defenderFootprint;
-
-        // Default to attacker frontage if defender is wider or equal
-        int baseContact;// TODO: Get BACK TO THIS PROJECT, IT'S HALF FINISHED
-if (defendermmFootprint >= attackermmFootprint)
-{
-    baseContact = attacker.frontage;
-}
-else
-{
-    // Calculate how many full attacker models fit in the defender's width
-    int modelsInContact = defendermmFootprint / attacker.ModelmmWidth;
-
-    // Check for partial overhang
-    int leftover = defendermmFootprint % attacker.ModelmmWidth;
-    if (leftover > 0)
+    private static int TotalAttacks(Troop attacker, Troop defender)
     {
-        modelsInContact += 1; // one extra model gets partial contact
-    }
+    int attackerFootprint = (attacker == leftFighter) ? LeftTroopFrontageState : RightTroopFrontageState;
+    int defenderFootprint = (attacker == leftFighter) ? RightTroopFrontageState : LeftTroopFrontageState;
 
-    // Cap contact to surviving attacker models
-    baseContact = Math.Min(modelsInContact, attacker.frontage);
-}
+    int attackermmFootprint = attacker.ModelmmWidth * attackerFootprint;
+    int defendermmFootprint = defender.ModelmmWidth * defenderFootprint;
 
+    // Default to attacker frontage if defender is wider or equal
+    int baseContact;// TODO: Get BACK TO THIS PROJECT, IT'S HALF FINISHED
+    if (defendermmFootprint >= attackermmFootprint)
+        {
+        baseContact = attacker.frontage;
         }
-        private static int ResolveAttacks(Troop attacker, Troop defender)
+    else
+        {
+        // Calculate how many full attacker models fit in the defender's width
+        int modelsInContact = defendermmFootprint / attacker.ModelmmWidth;
+
+        // Check for partial overhang
+        int leftover = defendermmFootprint % attacker.ModelmmWidth;
+        if (leftover > 0)
+            {
+            modelsInContact += 1; // one extra model gets partial contact
+            }
+        if (attacker.ModelmmWidth % defender.ModelmmWidth == 0)
+            {
+                modelsInContact += 2;
+            }
+
+        // Cap contact to surviving attacker models
+        baseContact = Math.Min(modelsInContact, attacker.frontage);
+        }
+
+    }
+    private static int ResolveAttacks(Troop attacker, Troop defender)
         {
             int totalAttacks = (Math.Min(attacker.frontage, attacker.ModelsInUnit)) * (attacker.att + attacker.currentWeapon.attBonus);
             int successfulAttacks = 0;
