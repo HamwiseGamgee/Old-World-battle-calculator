@@ -11,11 +11,7 @@ namespace The_Old_World_Fighters
 
     public class Combat
     {    
-        public static int LeftTroopFrontageState = 0;
-        public static int RightTroopFrontageState = 0;
-        //Storage values for later
-        
-        
+
         private static Random rand = new Random();
         // Reference to the form's richTextBox
         private static RichTextBox richTextBox1 = Form1.Instance.RichTextBoxOutput;
@@ -110,11 +106,9 @@ namespace The_Old_World_Fighters
         }
     private static int TotalAttacks(Troop attacker, Troop defender)
     {
-    int attackerFootprint = (attacker == leftFighter) ? LeftTroopFrontageState : RightTroopFrontageState;
-    int defenderFootprint = (attacker == leftFighter) ? RightTroopFrontageState : LeftTroopFrontageState;
 
-    int attackermmFootprint = attacker.ModelmmWidth * attackerFootprint;
-    int defendermmFootprint = defender.ModelmmWidth * defenderFootprint;
+    int attackermmFootprint = attacker.ModelmmWidth * attacker.frontage;
+    int defendermmFootprint = defender.ModelmmWidth * defender.frontage;
 
     int fullAttacks = 0;
     int supportingAttacks = 0;
@@ -131,7 +125,7 @@ namespace The_Old_World_Fighters
         int modelsInContact = defendermmFootprint / attacker.ModelmmWidth;
 
         // Check for partial overhang
-        int leftover = defendermmFootprint % attacker.ModelmmWidth;
+        int leftover = attacker.ModelmmWidth % defender.ModelmmWidth;
         if (leftover > 0)
             {
             modelsInContact += 1; // one extra model gets partial contact
@@ -142,7 +136,7 @@ namespace The_Old_World_Fighters
             }
 
         // Cap contact to surviving attacker models
-        baseContact = Math.Min(modelsInContact, attacker.frontage);
+        baseContact = Math.Min(Math.Min(modelsInContact, (attacker.frontage - attacker.Casualties)), attacker.ModelsInUnit);
         }
     for (int i = 0; i < baseContact; i++)
     {
@@ -150,16 +144,18 @@ namespace The_Old_World_Fighters
     }
     if (attacker.fightInExtraRank == true || attacker.currentWeapon.affectsExtraRanks == true)
         {
-            //Some great code
+            //Some great code.. TODO - Should frontage be used the way I use it?
+            supportingAttacks = Math.Max(Math.Min((attacker.frontage * 2), attacker.ModelsInUnit) - (attacker.Casualties + baseContact), 0);
         }
         else
         {
-            supportingAttacks = attacker.frontage - (attacker.Casualties + baseContact);
+            supportingAttacks = Math.Max(Math.Min(attacker.frontage, attacker.ModelsInUnit) - (attacker.Casualties + baseContact), 0);
         }
+    return fullAttacks + supportingAttacks;
     }
     private static int ResolveAttacks(Troop attacker, Troop defender)
         {
-            int totalAttacks = (Math.Min(attacker.frontage, attacker.ModelsInUnit)) * (attacker.att + attacker.currentWeapon.attBonus);
+            int totalAttacks = TotalAttacks(attacker, defender);
             int successfulAttacks = 0;
             int successfulWounds = 0;
             int unsavedWounds = 0;
@@ -173,7 +169,7 @@ namespace The_Old_World_Fighters
                 if (RollDice(toHitTarget)) successfulAttacks++;
             }
 
-            richTextBox1.AppendText($"{attacker.troopName} made {successfulAttacks} successful attacks (needed {toHitTarget}'s).\n");
+            richTextBox1.AppendText($"{attacker.troopName} were armed with {attackter.currentWeapon.weaponName} and made {successfulAttacks} successful attacks (needed {toHitTarget}'s).\n");
 
             // Calculate Wound Roll
             int woundTarget = (4 - ((attacker.stg + attacker.currentWeapon.stgBonus) - (defender.tuff + (defender.CurrentMount?.tuffBonus ?? 0))));
@@ -184,7 +180,7 @@ namespace The_Old_World_Fighters
                 if (RollDice(woundTarget)) successfulWounds++;
             }
 
-            richTextBox1.AppendText($"{defender.troopName} suffered {successfulWounds} potential wounds (needed {woundTarget}'s).\n");
+            richTextBox1.AppendText($"{defender.troopName} suffered {successfulWounds} potential wounds ({attacker.troopName} struck at strength {attacker.stg + attacker.currentWeapon.stgBonus} and needed {woundTarget}'s).\n");
 
             // Apply Saves
             unsavedWounds = successfulWounds;
@@ -200,7 +196,7 @@ namespace The_Old_World_Fighters
         
         private static int MountedAttacks(Mount attacker, Troop defender)
         { 
-            int totalAttacks = (Math.Min(attacker.Rider.frontage, attacker.Rider.ModelsInUnit)) * attacker.att;
+            int totalAttacks = (Math.Min((attacker.Rider.frontage - attacker.Rider.Casualties), attacker.Rider.ModelsInUnit)) * attacker.att;
     int successfulAttacks = 0;
     int successfulWounds = 0;
     int unsavedWounds = 0;
@@ -243,9 +239,6 @@ namespace The_Old_World_Fighters
 
         public static void RevisedAttack(List<InitiativeRoster> initiativeOrder, Troop leftFighter, Troop rightFighter)
         {
-            // Store the original frontage of Fighters
-            Combat.LeftTroopFrontageState = leftFighter.frontage;
-            Combat.RightTroopFrontageState = rightFighter.frontage;
             // Group entities by initiative value in descending order
             var groupedByInitiative = initiativeOrder
                 .GroupBy(e => e.Initiative)
@@ -271,7 +264,7 @@ namespace The_Old_World_Fighters
                         Debug.WriteLine($"{floatingDamage} unsaved wounds caused");
 
                         attacker.CombatScore += floatingDamage;
-                        target.Casualties += (target.FloatingWounds + floatingDamage) / target.wounds;
+                        target.FloatingCasualties += (target.FloatingWounds + floatingDamage) / target.wounds;
 
                         Debug.WriteLine($"{target.troopName} took {(target.FloatingWounds + floatingDamage) / target.wounds} casualties. (They had {target.FloatingWounds} wounds left over from before.");
                         target.FloatingWounds = (target.FloatingWounds + floatingDamage) % target.wounds;
@@ -289,22 +282,30 @@ namespace The_Old_World_Fighters
 
                         int floatingDamage = MountedAttacks(attacker, target);
                         Debug.WriteLine($"{floatingDamage} unsaved wounds caused by {attacker.mountName} while {attacker.Rider.troopName} sits around");
+
+                        attacker.CombatScore += floatingDamage;
+                        target.FloatingCasualties += (target.FloatingWounds + floatingDamage) / target.wounds;
                     }
                 }
 
                 // This happens once per initiative group
                 Debug.WriteLine($"Initiative resolved for {initiative}.");
+
+                leftFighter.Casualties += leftFighter.FloatingCasualties;
+                leftFighter.FloatingCasualties = 0;
+                rightFighter.Casualties += rightFighter.FloatingCasualties;
+                rightFighter.FloatingCasualties = 0;
                 leftFighter.ModelsInUnit -= leftFighter.Casualties;
-                leftFighter.frontage -= Math.Min(leftFighter.Casualties, 0);
                 rightFighter.ModelsInUnit -= rightFighter.Casualties;
-                rightFighter.frontage -= Math.Min(rightFighter.Casualties, 0);
-                leftFighter.Casualties = 0;
-                rightFighter.Casualties = 0;
                
             }
         }
 
-
+    public static int CombatBonusChecks(Troop accountants)
+    {
+        int totalBonus = 0;
+        if (accountants.isCloseorder) totalBonus += 1;
+    }
         public static void ResolveCombat(Troop leftFighter, Troop rightFighter)
         {
             leftFighter.RankBonus = Math.Min(((leftFighter.ModelsInUnit / leftFighter.frontage)
@@ -312,18 +313,50 @@ namespace The_Old_World_Fighters
             rightFighter.RankBonus = Math.Min(((rightFighter.ModelsInUnit / rightFighter.frontage) + (rightFighter.ModelsInUnit % rightFighter.frontage
                  >= rightFighter.filesForRankBonus ? 1 : 0) - 1), rightFighter.maxRankBonus);
 
-            leftFighter.CombatScore = leftFighter.CombatScore + leftFighter.RankBonus;
-            rightFighter.CombatScore = rightFighter.CombatScore + rightFighter.RankBonus;
+
+
+            leftFighter.CombatScore = leftFighter.CombatScore + leftFighter.RankBonus + CombatBonusChecks(leftFighter);
+            rightFighter.CombatScore = rightFighter.CombatScore + rightFighter.RankBonus + CombatBonusChecks(rightFighter);
             Debug.WriteLine($"{leftFighter.troopName} achieved a combat score of {leftFighter.CombatScore} and {rightFighter.troopName} had {rightFighter.CombatScore}");
 
+            var Troop winner = leftFighter.CombatScore > rightFighter.CombatScore ? leftFighter | rightFighter;
+            var Troop loser = leftFighter.CombatScore < rightFighter.CombatScore ? leftFighter | rightFighter;
+
+            if (leftFighter.CombatScore == rightFighter.CombatScore)
+            {
+                richTextBox1.AppendText($"The {leftFighter.troopName} and the {rightFighter.troopName} fought to a standstill. It's a draw!");
+            }
+            else
+            {
+                margin = winner.CombatScore - loser.CombatScore
+                richTextBox1.AppendText($"The {winner.troopName} emerges victorious over the {loser.troopName} by a margin of {margin}. \n
+                Did the {winner.}'s hope that leadership {loser.lead} comes through./n";
+                Breaktest(loser, margin);
+                
+            }
             //Reset floating variables for the next combat
             leftFighter.CombatScore = 0;
             rightFighter.CombatScore = 0;
-            leftFighter.FloatingWounds = 0;
-            rightFighter.FloatingWounds = 0;
-            leftFighter.frontage = Math.Min(LeftTroopFrontageState, leftFighter.ModelsInUnit);
-            rightFighter.frontage = Math.Min(RightTroopFrontageState, rightFighter.ModelsInUnit);
-            Debug.WriteLine("ScoreKeeping Reset Occurred");
+            leftFighter.FloatingWounds = 0;  // This Should be off for protracted combats
+            rightFighter.FloatingWounds = 0;// This Should be off for protracted combats
+            Debug.WriteLine("ScoreKeeping Reset Occurred Floating Wounds lost.");
+
+        private static void BreakTest(Troop loser, int margin)
+            {
+                Debug.WriteLine($"Break test for {loser.troopName} may or may not have happened");
+                int roll = rng.Next(1, 7) + rng.Next(1, 7);
+                leadBonus = loser.isWarband ? loser.RankBonus : 0;
+                
+                if (roll > (loser.lead + leadBonus) && loser.stubborn > 0)
+                {
+                    richTextBox1.AppendText($"{loser.troopName} Breaks and flees from combat.");
+                }
+                else
+                {
+                    Debug.WriteLine($"Whatever, dude");
+                }
+            }
+
 
         }
 

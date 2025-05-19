@@ -22,6 +22,7 @@ public class Troop
     public int frontage { get; set; } = 5;
     public int Casualties {get; set; } = 0;
     public int FloatingWounds {get; set; } = 0;
+    public int FloatingCasualties {get; set;} = 0;
     public string faction { get; set; } = "Whoops"; //*
     public int lead { get; set; } = 7;
     public int stubborn {get; set;} = 0; //1 = Stubborn, 2 = unbreakable
