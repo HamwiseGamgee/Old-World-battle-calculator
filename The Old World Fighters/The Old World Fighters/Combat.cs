@@ -116,6 +116,9 @@ namespace The_Old_World_Fighters
     int attackermmFootprint = attacker.ModelmmWidth * attackerFootprint;
     int defendermmFootprint = defender.ModelmmWidth * defenderFootprint;
 
+    int fullAttacks = 0;
+    int supportingAttacks = 0;
+
     // Default to attacker frontage if defender is wider or equal
     int baseContact;// TODO: Get BACK TO THIS PROJECT, IT'S HALF FINISHED
     if (defendermmFootprint >= attackermmFootprint)
@@ -141,7 +144,18 @@ namespace The_Old_World_Fighters
         // Cap contact to surviving attacker models
         baseContact = Math.Min(modelsInContact, attacker.frontage);
         }
-
+    for (int i = 0; i < baseContact; i++)
+    {
+        fullAttacks += (attackter.att + attacker.currentWeapon.attBonus);
+    }
+    if (attacker.fightInExtraRank == true || attacker.currentWeapon.affectsExtraRanks == true)
+        {
+            //Some great code
+        }
+        else
+        {
+            supportingAttacks = attacker.frontage - (attacker.Casualties + baseContact);
+        }
     }
     private static int ResolveAttacks(Troop attacker, Troop defender)
         {
