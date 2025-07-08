@@ -13,7 +13,8 @@
     "sav1": 5,
     "lead": 7,
     "isWarband": true,
-    "WeaponId": "GrtW"
+    "WeaponId": "GrtW",
+    "battlePressers": true
     },
         {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -29,7 +30,8 @@
     "sav1": 7,
     "lead": 6,
     "isWarband": true,
-    "isCloseorder": false
+    "isCloseorder": false,
+    "battlePressers": true
         },
         {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -45,7 +47,8 @@
     "sav1": 6,
     "lead": 5,
     "isWarband": true,
-    "isCloseorder": false
+    "isCloseorder": false,
+    "battlePressers": true
         },
         {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -59,7 +62,8 @@
     "frontage": 5,
     "sav1": 7,
     "lead": 5,
-    "isCloseorder": false
+    "isCloseorder": false,
+    "battlePressers": true
         },
         {
     "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",

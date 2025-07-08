@@ -14,7 +14,8 @@
     "stubborn": 2,
     "causeFear": true,
     "isUnstable": true,
-    "WeaponId": "Kho"
+    "WeaponId": "Kho",
+    "battlePressers": true
     },
     {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -30,7 +31,8 @@
     "sav3": 6,
     "causeFear": true,
     "isUnstable": true,
-    "stubborn": 2
+    "stubborn": 2,
+    "battlePressers": true
     },
     {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -47,7 +49,8 @@
     "stubborn": 2,
     "causeFear": true,
     "isUnstable": true,
-    "isCloseOrder": false
+    "isCloseOrder": false,
+    "battlePressers": true
     },
     {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -64,7 +67,8 @@
     "stubborn": 2,
     "causeFear": true,
     "isUnstable": true,
-    "isCloseOrder": false
+    "isCloseOrder": false,
+    "battlePressers": true
     },
     {
     "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",

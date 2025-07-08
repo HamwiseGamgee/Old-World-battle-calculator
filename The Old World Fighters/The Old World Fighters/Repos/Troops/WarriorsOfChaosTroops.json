@@ -11,7 +11,8 @@
     "frontage": 4,
     "sav1": 5,
     "lead": 8,
-    "WeaponId": "Chaos"
+    "WeaponId": "Chaos",
+    "battlePressers": true
 },
 {
     "$type": "The_Old_World_Fighters.HeavyInfantry, The_Old_World_Fighters",
@@ -27,7 +28,8 @@
     "sav2": 6,
     "lead": 9,
     "stubborn": 1,
-    "WeaponId": "Chaos"
+    "WeaponId": "Chaos",
+    "battlePressers": true
 },
     {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -41,7 +43,8 @@
     "frontage": 5,
     "sav1": 7,
     "lead": 6,
-    "isWarband": true
+    "isWarband": true,
+    "battlePressers": true
 },
     {
     "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",

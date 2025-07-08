@@ -11,7 +11,8 @@
     "stg": 3,
     "troopName": "Empire Halberdiers",
     "tuff": 3,
-    "wepSkil": 3
+    "wepSkil": 3,
+    "battlePressers": true
   },
   {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -27,7 +28,8 @@
     "ap": 0,
     "lead": 8,
     "WeaponId": "GrtW",
-    "stubborn": 1
+    "stubborn": 1,
+    "battlePressers": true
   },
     {
         "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -39,7 +41,8 @@
         "ini": 3,
         "att": 1,
         "frontage": 5,
-        "sav1": 6
+        "sav1": 6,
+    "battlePressers": true
     },
     {
         "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -50,7 +53,8 @@
         "tuff": 3,
         "ini": 3,
         "att": 1,
-        "frontage": 5
+        "frontage": 5,
+    "battlePressers": true
     },
   {
     "$type": "The_Old_World_Fighters.HeavyCavalry, The_Old_World_Fighters",
@@ -73,7 +77,8 @@
         "troopName": "Veteran State Troops",
         "faction": "Empire",
         "wepSkil": 4,
-        "sav1": 6
+        "sav1": 6,
+    "battlePressers": true
     },
 
     {
@@ -87,7 +92,8 @@
         "att": 1,
         "frontage": 5,
         "lead": 6,
-        "WeaponId": "2HW"
+        "WeaponId": "2HW",
+    "battlePressers": true
     },
   {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -101,7 +107,8 @@
     "frontage": 5,
     "lead": 5,
     "WeaponId": "Fll",
-    "stubborn": 2
+    "stubborn": 2,
+    "battlePressers": true
   },
   {
     "$type": "The_Old_World_Fighters.Cavalry, The_Old_World_Fighters",

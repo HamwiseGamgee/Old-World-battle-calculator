@@ -13,7 +13,8 @@
     "lead": 6,
     "isWarband": true,
     "ModelmmWidth": 30,
-    "ModelmmDepth": 30
+    "ModelmmDepth": 30,
+    "battlePressers": true
 },
 {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -29,7 +30,8 @@
     "lead": 6,
     "isWarband": true,
     "ModelmmWidth": 30,
-    "ModelmmDepth": 30
+    "ModelmmDepth": 30,
+    "battlePressers": true
 },
 {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -44,7 +46,8 @@
     "maxRankBonus": 3,
     "sav1": 7,
     "lead": 5,
-    "isWarband": true
+    "isWarband": true,
+    "battlePressers": true
 },
 {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -59,7 +62,8 @@
     "maxRankBonus": 3,
     "sav1": 7,
     "lead": 4,
-    "isWarband": true
+    "isWarband": true,
+    "battlePressers": true
 },
 {
     "$type": "The_Old_World_Fighters.Swarm, The_Old_World_Fighters",

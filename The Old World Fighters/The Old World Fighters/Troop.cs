@@ -50,6 +50,8 @@ public class Troop
     public bool isFlaming {get; set;} = false;
     public bool isFlammable {get; set;} = false;
     public string WeaponId { get; set; } = "1HW"; // Default weapon ID
+    public bool isCharging {get; set; } = false;
+    public bool BattlePressers {get; set; } = false;
 
         // ✅ Stores only the wepId in JSON and later replaced by real object from repository
         public Weapon currentWeapon { get; set; } = new Weapon(); 

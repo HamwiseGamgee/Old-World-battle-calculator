@@ -12,7 +12,8 @@
     "sav1": 5,
     "lead": 9,
     "ModelmmWidth": 25,
-    "ModelmmDepth": 25
+    "ModelmmDepth": 25,
+    "battlePressers": true
     },
     {
     "$type": "The_Old_World_Fighters.HeavyInfantry, The_Old_World_Fighters",
@@ -28,6 +29,7 @@
     "lead": 9,
     "WeaponId": "Grom",
     "ModelmmWidth": 25,
-    "ModelmmDepth": 25
+    "ModelmmDepth": 25,
+    "battlePressers": true
     }
 ]

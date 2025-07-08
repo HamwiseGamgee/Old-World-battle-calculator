@@ -12,7 +12,8 @@
     "isWarband": true,
     "maxRankBonus": 3,
     "sav1": 6,
-    "lead": 4
+    "lead": 4,
+    "battlePressers": true
 },
   {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -28,7 +29,8 @@
     "maxRankBonus": 3,
     "sav1": 5,
     "lead": 5,
-    "WeaponId": "Hlbd"
+    "WeaponId": "Hlbd",
+    "battlePressers": true
   },
 {
     "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",
@@ -74,7 +76,8 @@
     "tuff": 3,
     "ini": 5,
     "lead": 5,
-    "maxRankBonus": 0
+    "maxRankBonus": 0,
+    "battlePressers": true
 },
   {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -86,7 +89,8 @@
     "ini": 5,
     "lead": 7,
     "WeaponId": "2HW",
-    "maxRankBonus": 0
+    "maxRankBonus": 0,
+    "battlePressers": true
   },
 {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -99,7 +103,8 @@
     "lead": 5,
     "isWarband": true,
     "maxRankBonus": 3,
-    "att": 2
+    "att": 2,
+    "battlePressers": true
 },
   {
     "$type": "The_Old_World_Fighters.Infantry, The_Old_World_Fighters",
@@ -111,6 +116,7 @@
     "ini": 3,
     "lead": 5,
     "WeaponId": "Fll",
-    "maxRankBonus": 0
+    "maxRankBonus": 0,
+    "battlePressers": true
   }
 ]

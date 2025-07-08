@@ -114,42 +114,27 @@ namespace The_Old_World_Fighters
     int supportingAttacks = 0;
 
     // Default to attacker frontage if defender is wider or equal
-    int baseContact;// TODO: Get BACK TO THIS PROJECT, IT'S HALF FINISHED
-    if (defendermmFootprint >= attackermmFootprint)
-        {
-        baseContact = attacker.frontage;
+    int fightingRank;// TODO: Get BACK TO THIS PROJECT, IT'S HALF FINISHED
+    if (attacker.isCharging == false && attacker.battlePressers == true)
+        { 
+        fightingRank = math.Min((attacker.frontage * 2) - attacker.Casualties, attacker.ModelsInUnit);
         }
     else
         {
-        // Calculate how many full attacker models fit in the defender's width
-        int modelsInContact = defendermmFootprint / attacker.ModelmmWidth;
-
-        // Check for partial overhang
-        int leftover = attacker.ModelmmWidth % defender.ModelmmWidth;
-        if (leftover > 0)
-            {
-            modelsInContact += 1; // one extra model gets partial contact
-            }
-        if (attacker.ModelmmWidth % defender.ModelmmWidth == 0)
-            {
-                modelsInContact += 2;
-            }
-
-        // Cap contact to surviving attacker models
-        baseContact = Math.Min(Math.Min(modelsInContact, (attacker.frontage - attacker.Casualties)), attacker.ModelsInUnit);
+        fightingRank = math.Min(attacker.frontage - attacker.Casualties, attacker.ModelsInUnit);
         }
-    for (int i = 0; i < baseContact; i++)
+    for (int i = 0; i < fightingRank; i++)
     {
         fullAttacks += (attackter.att + attacker.currentWeapon.attBonus);
     }
     if (attacker.fightInExtraRank == true || attacker.currentWeapon.affectsExtraRanks == true)
         {
             //Some great code.. TODO - Should frontage be used the way I use it?
-            supportingAttacks = Math.Max(Math.Min((attacker.frontage * 2), attacker.ModelsInUnit) - (attacker.Casualties + baseContact), 0);
+            supportingAttacks = Math.Max(Math.Min((attacker.frontage * 2), attacker.ModelsInUnit) - (attacker.Casualties + fightingRank), 0);
         }
         else
         {
-            supportingAttacks = Math.Max(Math.Min(attacker.frontage, attacker.ModelsInUnit) - (attacker.Casualties + baseContact), 0);
+            supportingAttacks = Math.Max(Math.Min(attacker.frontage, attacker.ModelsInUnit) - (attacker.Casualties + fightingRank), 0);
         }
     return fullAttacks + supportingAttacks;
     }
