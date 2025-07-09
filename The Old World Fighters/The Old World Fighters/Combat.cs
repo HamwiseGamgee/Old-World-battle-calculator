@@ -107,34 +107,32 @@ namespace The_Old_World_Fighters
     private static int TotalAttacks(Troop attacker, Troop defender)
     {
 
-    int attackermmFootprint = attacker.ModelmmWidth * attacker.frontage;
-    int defendermmFootprint = defender.ModelmmWidth * defender.frontage;
-
     int fullAttacks = 0;
     int supportingAttacks = 0;
 
-    // Default to attacker frontage if defender is wider or equal
-    int fightingRank;// TODO: Get BACK TO THIS PROJECT, IT'S HALF FINISHED
+    int remainingModels = attacker.ModelsInUnit - attacker.Casualties;
+    int fightingRank;// TODO: Test this, It Might work.
     if (attacker.isCharging == false && attacker.battlePressers == true)
         { 
-        fightingRank = math.Min((attacker.frontage * 2) - attacker.Casualties, attacker.ModelsInUnit);
+        fightingRank = Math.Max(Math.Min((attacker.frontage * 2) - attacker.Casualties, remainingModels), 0);
         }
     else
         {
-        fightingRank = math.Min(attacker.frontage - attacker.Casualties, attacker.ModelsInUnit);
+        fightingRank = Math.Max(Math.Min(attacker.frontage - attacker.Casualties, remainingModels), 0);
         }
     for (int i = 0; i < fightingRank; i++)
     {
-        fullAttacks += (attackter.att + attacker.currentWeapon.attBonus);
+        fullAttacks += (attacker.att + attacker.currentWeapon.attBonus);
     }
-    if (attacker.fightInExtraRank == true || attacker.currentWeapon.affectsExtraRanks == true)
+    if ((attacker.fightInExtraRank == true || attacker.currentWeapon.affectsExtraRanks == true) && attacker.isCharging == false)
         {
             //Some great code.. TODO - Should frontage be used the way I use it?
-            supportingAttacks = Math.Max(Math.Min((attacker.frontage * 2), attacker.ModelsInUnit) - (attacker.Casualties + fightingRank), 0);
+            supportingAttacks = Math.Min(Math.Max(attacker.frontage - Math.Max(attacker.Casualties - attacker.frontage), 0), (remainingModels - attacker.frontage);
         }
         else
         {
-            supportingAttacks = Math.Max(Math.Min(attacker.frontage, attacker.ModelsInUnit) - (attacker.Casualties + fightingRank), 0);
+            //No Spears Etc
+            supportingAttacks = 0;
         }
     return fullAttacks + supportingAttacks;
     }

@@ -53,8 +53,8 @@ public class Troop
     public bool isCharging {get; set; } = false;
     public bool BattlePressers {get; set; } = false;
 
-        // ✅ Stores only the wepId in JSON and later replaced by real object from repository
-        public Weapon currentWeapon { get; set; } = new Weapon(); 
+        // Stores only the wepId in JSON and later replaced by real object from repository
+    public Weapon currentWeapon { get; set; } = new Weapon(); 
 
     // Optional helper method to change weapons in runtime, e.g. from UI
     public void ChangeWeapon(string newWepId)
@@ -184,5 +184,6 @@ theTroopInQuestion.ChangeWeapon("GrtWpn");
         public bool gainsMagic {get; set;} = false;
         public bool isPoisoned {get; set;} = false;
         public bool killingBlow {get; set;} = false;
+        public bool extraRankOnCharge {get; set;} = false;
     }
 

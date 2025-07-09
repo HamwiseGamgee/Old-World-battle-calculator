@@ -68,6 +68,10 @@ namespace The_Old_World_Fighters
             if (selectedTroop1 != null)
             {
                 selectedTroop1.frontage = (int)troop1Frontage.Value;
+                if ((selectedTroop1.frontage - selectedTroop2.frontage) => 7 && selectedTroop2 != null)
+                {
+                    Debug.WriteLine("Large differences in frontage may make \"Fighting Rank\" calculations incorrect");
+                }
             }
         }
 
@@ -77,6 +81,10 @@ namespace The_Old_World_Fighters
             if (selectedTroop2 != null)
             {
                 selectedTroop2.frontage = (int)troop2Frontage.Value;
+                                if ((selectedTroop2.frontage - selectedTroop1.frontage) => 7 && selectedTroop1 != null)
+                {
+                    Debug.WriteLine("Large differences in frontage may make \"Fighting Rank\" calculations incorrect");
+                }
             }
         }
         private void leftTroopModelCount_ValueChanged(object sender, EventArgs e)
