@@ -284,10 +284,11 @@ namespace The_Old_World_Fighters
             }
         }
 
-    public static int CombatBonusChecks(Troop accountants)
+    public static int CombatBonusChecks(Troop accountants, baddies)
     {
         int totalBonus = 0;
-        if (accountants.isCloseorder) totalBonus += 1;
+        if (accountants.isCloseorder && (accountants.ModelsInUnit - accountants.Casualties) >= 10) totalBonus += 1;
+        if ((accountants.UnitStrengthMultiplier * (accountants.ModelsInUnit - accountants.Casualties) > baddies.UnitStrengthMultiplier * (baddies.ModelsInUnit - baddies.Casualties)) && accountants.BattlePressers == true) totalBonus +=1;
     }
         public static void ResolveCombat(Troop leftFighter, Troop rightFighter)
         {
@@ -297,9 +298,8 @@ namespace The_Old_World_Fighters
                  >= rightFighter.filesForRankBonus ? 1 : 0) - 1), rightFighter.maxRankBonus);
 
 
-
-            leftFighter.CombatScore = leftFighter.CombatScore + leftFighter.RankBonus + CombatBonusChecks(leftFighter);
-            rightFighter.CombatScore = rightFighter.CombatScore + rightFighter.RankBonus + CombatBonusChecks(rightFighter);
+            leftFighter.CombatScore = leftFighter.CombatScore + leftFighter.RankBonus + CombatBonusChecks(leftFighter, rightFighter);
+            rightFighter.CombatScore = rightFighter.CombatScore + rightFighter.RankBonus + CombatBonusChecks(rightFighter, leftFighter);
             Debug.WriteLine($"{leftFighter.troopName} achieved a combat score of {leftFighter.CombatScore} and {rightFighter.troopName} had {rightFighter.CombatScore}");
 
             var Troop winner = leftFighter.CombatScore > rightFighter.CombatScore ? leftFighter | rightFighter;

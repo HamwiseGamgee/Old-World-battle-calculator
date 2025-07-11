@@ -94,7 +94,8 @@
     "lead": 6,
     "isWarband": true,
     "frontage": 5,
-    "isCloseorder": false
+    "isCloseorder": false,
+    "battlePressers": false
 },
 {
     "$type": "The_Old_World_Fighters.MonstrousInfantry, The_Old_World_Fighters",

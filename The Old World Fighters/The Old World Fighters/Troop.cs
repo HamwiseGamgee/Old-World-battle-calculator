@@ -74,7 +74,7 @@ public class Infantry : Troop
 {
     public Infantry()
     {
-        maxRankBonus = 2; // This is the default anyway. Just wanted something here.
+        BattlePressers = true;
     }
 }
 public class HeavyInfantry : Infantry
@@ -84,6 +84,7 @@ public class HeavyInfantry : Infantry
     filesForRankBonus = 4;
     ModelmmDepth = 30;
     ModelmmWidth = 30;
+    BattlePressers = true;
     }
 }
 public class MonstrousInfantry : Infantry
