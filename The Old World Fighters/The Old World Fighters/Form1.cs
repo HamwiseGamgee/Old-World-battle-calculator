@@ -227,7 +227,8 @@ namespace The_Old_World_Fighters
                 }
             }
         }
-
+//TODO: Visual Checkboxes for isCharging.
+//TODO: Checkbox for Frenzy that only appears if the Model starts with Frenzy.
         private void equipRightUnit_Click(object sender, EventArgs e)
         {
             if (selectedTroop2 != null)
