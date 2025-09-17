@@ -111,6 +111,7 @@ namespace The_Old_World_Fighters
     int supportingAttacks = 0;
 
     int remainingModels = attacker.ModelsInUnit - attacker.Casualties;
+    int baseContact;//This is now undefined
     int fightingRank;// TODO: Test this, It Might work.
     if (attacker.isCharging == false && attacker.battlePressers == true)
         { 
@@ -120,6 +121,9 @@ namespace The_Old_World_Fighters
         {
         fightingRank = Math.Max(Math.Min(attacker.frontage - attacker.Casualties, remainingModels), 0);
         }
+
+    
+
     for (int i = 0; i < fightingRank; i++)
     {
         fullAttacks += (attacker.att + attacker.currentWeapon.attBonus);

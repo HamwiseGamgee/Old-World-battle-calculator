@@ -37,6 +37,7 @@ public class Troop
     public bool isWarband {get; set;} = false;
     public int ModelmmWidth {get; set;} = 25;
     public int ModelmmDepth {get; set;} = 25;
+    public int MmFootprint {get; set;} = (ModelmmWidth x frontage);
     public int? MountId { get; set; }
     public Mount? CurrentMount { get; set; }
     public bool isCloseorder {get; set;} = true;
